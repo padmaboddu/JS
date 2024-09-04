@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+    <style>
+        .main{
+            background-image: url('https://th.bing.com/th/id/R.5d23f1aa9eacb4ada05fbc7d85500cf9?rik=%2fGiVoQBiGfB3Qg&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f03%2fDark-Blue-Background-free-desktop.jpg&ehk=sB4zu%2b2tPgu7wDGVoGY%2bs1Lc5CPICdV1eKWh7sMzI7I%3d&risl=&pid=ImgRaw&r=0');
+            background-repeat: no-repeat;
+            background-size: cover;
+         
+            height: 900px;
+         
+        }
+        .dashboard{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        
+        }
+        .block{
+            width: 350px;
+            height: 200px;
+            margin: 20px;
+            padding: 5px;
+            border: 5px solid;
+            border-radius: 50px;
+
+        }
+        .credit{
+           
+            text-align: center;
+            padding-top: 30px;
+            color: #74C0FC;
+            font-size: large;
+           
+        }
+        .debit{
+            text-align: center;
+            padding-top: 30px;
+            color:#74C0FC;
+            font-size: large;
+           
+        }
+        .details{
+          
+            text-align: center;
+            padding-top: 30px;
+            color:#74C0FC;
+            font-size: large;
+           
+        }
+        
+        .fa-solid{
+            padding-bottom: 20px;
+        }
+        .name{
+            color: #74C0FC;
+            text-align: center;
+            padding-top: 200px;
+
+        }
+        button{
+            width: 50px;
+            border: 2px solid #74C0FC;
+            border-radius: 10px;
+        }
+        .block:hover{
+            transform: translate(5);
+        }
+        
+       
+      
+        
+    </style>
+  
+</head>
+</body>
+
+<a href="../index1.html" ><i class="fa-solid fa-arrow-left fa-2xl" style="color: #74C0FC;"></i> </a>
+<div class="main">
+    <div class="name">
+        <h2>DASHBOARD</h2>
+
+    
+    
+
+   
+   
+    <div class="dashboard">
+        <div class="block details">
+            <h1> ACCOUNT 
+                DETAILS</h1>
+                <a href="details.html"> <button>click</button></a></button>
+        </div>
+        <div class="block credit"></a>
+            <h1>CREDIT
+            CARD</h1></a>
+            <a href="credit.html"><button>click</button></a>
+        </div>
+        <div class="block debit">
+            <h1>DEBIT
+            CARD</h1>
+            <a href="debit.html"><button>click</button></a>
+        </div>
+      
+      
+           
+        </div>
+    </div>
+    </div>
+
+    </html>
+    <script>
+       
+        var pin = prompt("enter your4-digit pin.");
+        if(pin.length===4){
+            alert("success");
+
+        }
+        else{
+            alert("invalid pin.please enter 4 digits.");
+        }
+
+
+
+    </script>
+
+   
+       
+    
+</body>
+</html>

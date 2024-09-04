@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #men{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+          .box{
+            width: 300px;
+            height: 600px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .box img{
+          height: 400px;
+          width:300px;
+          transition: 200ms;
+        }
+        .box:hover img{
+            transform: scale(1.02);
+        }
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+
+    <input type="number" id="min-price" placeholder="min price">
+    <input type="number" id="max-price" placeholder="max price">
+    <button id="apply-filter">applyfilter</button>
+    </div>
+    <div id="men">
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240201/z4vL/65baaf7c16fd2c6e6ace9c10/-473Wx593H-467028441-black-MODEL.jpg">
+            <h1>IDEE
+            </h1>
+        <p>Men IDS2994C1SG UV-Protected Full-Rim Sqaure Sunglasses</p>
+            <h2 class="price">₹3219</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230706/XUaM/64a66261a9b42d15c939d61d/-473Wx593H-466228727-black-MODEL.jpg">
+            <h1>VOYAGE
+            </h1>
+            <p>1915 UV-Protected Full-Rim Round Sunglasses</p>
+            <h2 class="price">₹630
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20221206/WFJ7/638f55c5f997ddfdbdbecb4a/-473Wx593H-460893488-blue-MODEL.jpg">
+            <h1>TED SMITH</h1>
+            <p>TS-AVIMAST-C10 UV-Protected Aviators</p>
+            <h2 class="price">₹435
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230807/GO14/64d10b33a9b42d15c993adb2/-473Wx593H-469186791-green-MODEL.jpg">
+            <h1>ROYAL SON</h1>
+            <p>RS0014AV UV-Protected Aviators
+
+            </p>
+            <h2 class="price">₹400
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240802/G4rz/66accbb41d763220fa58c0e6/-473Wx593H-469186784-blacksmoke-MODEL.jpg">
+            <h1>ROYAL SON</h1>
+            <p>RS007AV UV-Protected Aviators </p>
+            <h2 class="price">₹427
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240213/z06v/65cb7f6016fd2c6e6af48e76/-473Wx593H-4932535880-multi-MODEL.jpg">
+            <h1>IDEE
+
+            </h1>
+            <p>Men UV-Protected Full-Rim Square Sunglasses-IDS2800C7PSG
+
+            </p>
+            <h2 class="price">₹2,436
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230609/jED8/64830e4542f9e729d733dc17/-473Wx593H-469515011-green-MODEL.jpg">
+            <h1>TED SMITH
+            </h1>
+             <p>Men UV-Protected Aviator Sunglasses - TS2327-C4
+            </p>
+            <h2 class="price">₹870
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230714/IwqP/64b0d5f8eebac147fc6bcb7e/-473Wx593H-464855473-gold-MODEL.jpg">
+            <h1>JOHN JACOBS
+            </h1>
+            <p>Unisex UV Protected Square Sunglasses -JJ S12959
+            </p>
+            <h2 class="price">₹1,699
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230529/Zho4/6474824f42f9e729d7f03d85/-473Wx593H-466204643-grey-MODEL.jpg">
+            <h1>VOYAGE
+            </h1>
+            <p>2305 Rectangular Sunglasses
+            </p>
+            <h2 class="price">₹870</h2>
+        </div>
+    </div>
+    <script>
+        const men = document.querySelectorAll('.box');
+        document.getElementById('apply-filter').addEventListener('click',applyFilter);
+        
+        function applyFilter() {
+            const minPrice = parseInt(document.getElementById('min-price').value);
+            const maxPrice = parseInt(document.getElementById('max-price').value);
+        
+
+     
+        men.forEach((box) =>{
+            const price = parseInt(box.querySelector('.price').textContent.replace('₹',''));
+            if (price >= minPrice && price <= maxPrice){
+            box.style.display = 'block';  
+            } 
+        
+        else{
+            box.style.display ='none';
+
+        }
+    
+          });
+        }
+    </script>
+    
+</body>
+</html>

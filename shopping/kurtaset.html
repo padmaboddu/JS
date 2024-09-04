@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #men{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+          .box{
+            width: 300px;
+            height: 570px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .box img{
+          height: 400px;
+          width:300px;
+          transition: 200ms;
+        }
+        .box:hover img{
+            transform: scale(1.02);
+        }
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <input type="number" id="min-price" placeholder="min price">
+    <input type="number" id="max-price" placeholder="max price">
+    <button id="apply-filter">applyfilter</button>
+    </div>
+    <div id="men">
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240727/gnY2/66a3fbd61d763220fa38561f/-473Wx593H-700173481-blue-MODEL2.jpg">
+            <h1>ZEEPKART</h1>       
+             <p>Embellished Straight Kurta Set</p>            
+             <h2 class="price">₹1113</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230912/s27L/64ff75dcafa4cf41f5d9af0b/-473Wx593H-466563134-olive-MODEL.jpg">
+            <h1>HETVI CREATION</h1>
+            <p>Printed Straight Kurta Set  </p>
+            <h2 class="price">₹957</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240627/QPOy/667da1606f60443f31d35ca6/-473Wx593H-700133345-pink-MODEL.jpg">
+            <h1>ANARA</h1>
+            <p>Women Floral Print Anarkali Kurta Set </p>
+            <h2 class="price">₹857</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230821/ja4M/64e36748afa4cf41f562a5f4/-473Wx593H-466478028-mauve-MODEL.jpg">
+            <h1>JAPNAAM </h1>
+            <p>Embellished Straight Kurta with Pants & Dupatta  </p>
+            <h2 class="price">₹1115</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240609/ppIZ/6665eb2f16fd2c6e6a5eef0b/-473Wx593H-700064221-aqua-MODEL.jpg">
+            <h1>EELOO  </h1>
+            <p>Women Embroidered Straight Kurta Set </p>
+            <h2 class="price">₹1170 </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240211/KNSr/65c8cfac05ac7d77bb4e4deb/-473Wx593H-467063638-pink-MODEL.jpg">
+            <h1>SKYLEE</h1>
+            <p>Women Floral Print A-Line Kurta with Pants & Dupatta </p>
+            <h2 class="price">₹1359</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20231229/DJ5p/658ef2bcafa4cf41f5f6610b/-473Wx593H-466930473-blue-MODEL.jpg">
+            <h1>VREDEVOGEL</h1>
+             <p>Women Floral Print A-Line Kurta Set with Dupatta </p>
+            <h2 class="price">₹1000</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240322/VWIW/65fd9aa405ac7d77bbd26e36/-473Wx593H-466619301-purple-MODEL.jpg">
+            <h1>ARADHNA
+            </h1>
+            <p>Embellished Straight Kurta Set
+            </p>
+            <h2 class="price">₹869</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240117/b7sf/65a6dab28cdf1e0df5ba9a1c/-473Wx593H-466986580-green-MODEL.jpg">
+            <h1>CANIBANI
+            </h1>
+            <p>Women Embroidered Straight Kurta Suit Set
+            </p>
+            <h2 class="price">₹858</h2>
+        </div>
+    </div>
+    <script>
+        const men = document.querySelectorAll('.box');
+        document.getElementById('apply-filter').addEventListener('click',applyFilter);
+        
+        function applyFilter() {
+            const minPrice = parseInt(document.getElementById('min-price').value);
+            const maxPrice = parseInt(document.getElementById('max-price').value);
+        
+
+     
+        men.forEach((box) =>{
+            const price = parseInt(box.querySelector('.price').textContent.replace('₹',''));
+            if (price >= minPrice && price <= maxPrice){
+            box.style.display = 'block';  
+            } 
+        
+        else{
+            box.style.display ='none';
+
+        }
+    
+          });
+        }
+    </script>
+    
+    
+</body>
+</html>

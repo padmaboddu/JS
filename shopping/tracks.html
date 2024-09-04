@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #men{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+          .box{
+            width: 300px;
+            height: 600px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid burlywood;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .box img{
+          height: 400px;
+          width:300px;
+          transition: 200ms;
+        }
+        .box:hover img{
+            transform: scale(1.02);
+        }
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <input type="number" id="min-price" placeholder="min price">
+    <input type="number" id="max-price" placeholder="max price">
+    <button id="apply-filter">applyfilter</button>
+    </div>
+    <div id="men">
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230825/vh5P/64e7cb32afa4cf41f580caf7/-473Wx593H-466493224-black-MODEL.jpg">
+            <h1>PARALIANS</h1>
+        <p>Straight Track Pants with Elasticated Drawstring Waist </p>
+             <h1>₹330 </h1>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240315/bhDj/65f4674405ac7d77bbbaef4c/-473Wx593H-443004375-ltgrey-MODEL.jpg">
+            <h1>PERFORMAX</h1>
+            <p>Lightweight Running Trackpant with Inner Mesh</p>
+            <h1>₹799</h1>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230706/Tm5n/64a6f7c3eebac147fc5a8797/-473Wx593H-469494712-blackgrey-MODEL.jpg">
+            <h1>NIKE</h1>
+            <p>Men Straight Track Pants with Elasticated Waist</p>
+            <h1>₹1,791</h1>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240604/0o3o/665f002205ac7d77bb9bc2f2/-473Wx593H-700037322-blue-MODEL2.jpg">
+            <h1>A23 LIFESTYLE</h1>
+            <p>Men Straight Track Pants with Elasticated Waist</p>
+            <h1>₹400 </h1>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20220808/2uGU/62f094a2f997dd03e22b5012/-473Wx593H-462878795-blue-MODEL.jpg">
+            <h1>BULLMER</h1>
+            <p>Men Graphic Print Track Pants with Insert Pockets </p>
+            <h1>₹399</h1>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20220407/AWv2/624de263aeb26921af0f7d10/-473Wx593H-441139596-ecru-MODEL.jpg">
+            <h1>TEAMSPIRIT</h1>
+            <p>Men Track Pants with Insert Pockets</p>
+            <h1>₹699 </h1>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20220217/ZWBF/620d51def997dd03e2d39f01/-473Wx593H-441195041-navy-MODEL.jpg">
+            <h1>ALTHEORY</h1>
+             <p>Checked Track Pants with Insert Pockets</p>
+            <h1>₹575</h1>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240313/zvDY/65f1b98105ac7d77bbb0bdff/-473Wx593H-443032060-charcoal-MODEL.jpg">
+            <h1>JOHN PLAYERS JEANS</h1>
+            <p>Men Printed Skinny Fit Joggers</p>
+            <h1>₹917</h1>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240508/Cbhl/663b91db16fd2c6e6af448a5/puma-eucalyptus-straight-straight-track-pants-with-drawstring-waist.jpg">
+            <h1>PUMA</h1>
+            <p>Straight Track Pants with Drawstring Waist</p>
+            <h1>₹2,399</h1>
+        </div>
+    </div>
+    <script>
+        const men = document.querySelectorAll('.box');
+        document.getElementById('apply-filter').addEventListener('click',applyFilter);
+        
+        function applyFilter() {
+            const minPrice = parseInt(document.getElementById('min-price').value);
+            const maxPrice = parseInt(document.getElementById('max-price').value);
+        
+
+     
+        men.forEach((box) =>{
+            const price = parseInt(box.querySelector('.price').textContent.replace('₹',''));
+            if (price >= minPrice && price <= maxPrice){
+            box.style.display = 'block';  
+            } 
+        
+        else{
+            box.style.display ='none';
+
+        }
+    
+          });
+        }
+    </script>
+    
+</body>
+</html>

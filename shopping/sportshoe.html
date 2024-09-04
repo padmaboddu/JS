@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #men{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+          .box{
+            width: 300px;
+            height: 600px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .box img{
+          height: 400px;
+          width:300px;
+          transition: 200ms;
+        }
+        .box:hover img{
+            transform: scale(1.02);
+        }
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <input type="number" id="min-price" placeholder="min price">
+    <input type="number" id="max-price" placeholder="max price">
+    <button id="apply-filter">applyfilter</button>
+    </div>
+    <div id="men">
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240716/d0jc/669654f56f60443f314af181/-473Wx593H-700108484-white-MODEL.jpg">
+            <h1>RED TAPE</h1>
+        <p>Men Round-Toe Sports Shoes with Lace Fastening</p>
+            
+             <h2 class="price">₹1,300
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240731/BT62/66aa5b6d6f60443f31dd9bbb/-473Wx593H-466893107-green-MODEL.jpg">
+            <h1>RED TAPE
+
+            </h1>
+            <p>Men Low-Top Lace-Up Running Shoes
+
+            </p>
+            <h2 class="price">₹1,640
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240725/rSOz/66a27cd96f60443f31b41398/-473Wx593H-700227311-grey-MODEL.jpg">
+            <h1>CALCETTO
+
+            </h1>
+            <p>Men Knitted Lace-Up Running Shoes
+
+            </p>
+            <h2 class="price">₹1,100
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240805/bxeg/66b0dfbc1d763220fa5f4a02/-473Wx593H-467299364-black-MODEL.jpg">
+            <h1>SPARX
+
+            </h1>
+            <p>Men Knitted Running Shoes with Lace Fastening
+
+            </p>
+            <h2 class="price">₹1,253
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230621/rGlh/64927155d55b7d0c638d633c/-473Wx593H-464071052-navy-MODEL.jpg">
+            <h1>CAMPUS
+
+            </h1>
+            <p>Textured Running Sports Shoes
+
+            </p>
+            <h2 class="price">₹920
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230628/Ffjs/649bc390eebac147fc1f4c5c/-473Wx593H-465862658-teal-MODEL5.jpg">
+            <h1>ACTION
+
+            </h1>
+            <p>Textured Lace-Up Sports Shoes
+
+            </p>
+            <h2 class="price">₹1,092
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240531/qgar/6658da0d16fd2c6e6a408ee1/-473Wx593H-469584591-grey-MODEL.jpg">
+            <h1>ADIDAS
+            </h1>
+             <p>Pureboost 23 Running Shoes
+            </p>
+            <h2 class="price">₹8,059
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240104/Aqb9/6596c34fafa4cf41f5030cce/-473Wx593H-469566610-black-MODEL.jpg">
+            <h1>PUMA
+            </h1>
+            <p>Diffuse Running Shoes
+            </p>
+            <h2 class="price">₹2,150
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240104/kY5p/6596c36dafa4cf41f5030ef4/-473Wx593H-469566612-blue-MODEL.jpg">
+            <h1>PUMA</h1>
+            <p>Diffuse Lace-Up Running Shoes
+            </p>
+            <h2 class="price">₹2,250</h2>
+        </div>
+    </div>
+    <script>
+        const men = document.querySelectorAll('.box');
+        document.getElementById('apply-filter').addEventListener('click',applyFilter);
+        
+        function applyFilter() {
+            const minPrice = parseInt(document.getElementById('min-price').value);
+            const maxPrice = parseInt(document.getElementById('max-price').value);
+        
+
+     
+        men.forEach((box) =>{
+            const price = parseInt(box.querySelector('.price').textContent.replace('₹',''));
+            if (price >= minPrice && price <= maxPrice){
+            box.style.display = 'block';  
+            } 
+        
+        else{
+            box.style.display ='none';
+
+        }
+    
+          });
+        }
+    </script>
+    
+</body>
+</html>

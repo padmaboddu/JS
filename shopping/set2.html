@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #men{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+          .box{
+            width: 300px;
+            height: 570px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid burlywood;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .box img{
+          height: 400px;
+          width:300px;
+          transition: 200ms;
+        }
+        .box:hover img{
+            transform: scale(1.02);
+        }
+    
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <input type="number" id="min-price" placeholder="min price">
+    <input type="number" id="max-price" placeholder="max price">
+    <button id="apply-filter">applyfilter</button>
+    </div>
+    <div id="men">
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240404/koMu/660ec27516fd2c6e6a9d84e0/-473Wx593H-410459978-midblue-MODEL.jpg">
+         <h1>ED-A-MAMMA</h1>
+       <p>Girls Cotton Pleated Skorts
+        </p>
+            
+             <h2 class="price">₹540
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240304/IBho/65e5df4c16fd2c6e6a398bad/-473Wx593H-443033862-ltblue-MODEL.jpg">
+            <h1>KG FRENDZ</h1>
+            <p>Girls Embroidered Regular Fit Denim Shorts
+            </p>
+
+            <h2 class="price">₹568
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230512/OnXD/645e630142f9e729d77d08b0/-473Wx593H-441775177-navy-MODEL.jpg">
+            <h1>POINT COVE</h1>
+            <p>MTV Print Round-Neck T-Shirt
+
+
+            </p>
+            <h2 class="price">₹200
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20220623/colU/62b49779f997dd03e299ef86/-473Wx593H-441142626-white-MODEL3.jpg">
+           
+            <h1>KG FRENDZ</h1>
+            <p>Floral Top Round-Neck Top
+
+
+            </p>
+            <h2 class="price">₹520
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230216/hI7M/63ee4674aeb26924e374fc0e/rio-girls-yellow-regular-floral-print-top-with-tie-up-neckline.jpg">
+            <h1>RIO GIRLS</h1>
+            <p>Floral Print Top with Tie-Up Neckline
+
+
+            </p>
+            <h2 class="price">₹442
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230421/uECi/64427963711cf97ba73ca047/-473Wx593H-469441814-midwash-MODEL.jpg">
+            <h1>PEPE JEANS</h1>
+            <p>Mid-Washed Printed Shorts
+
+
+            </p>
+            <h2 class="price">₹357
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230704/wW3Q/64a4069beebac147fc4a4c57/-473Wx593H-443017731-pink-MODEL.jpg">
+            <h1>KG FRENDZ</h1>
+             <p>Geometric Print Flared Skirt
+
+            </p>
+            <h2 class="price">₹442
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240307/jIRh/65e9ef6005ac7d77bb9fb42e/-473Wx593H-442529107-blue-MODEL3.jpg">
+            <h1>POINT COVE</h1>
+            <p>Girls Washed Slim Fit A-Line Denim Skirt
+
+            </p>
+            <h2 class="price">₹1,359
+            </h2>
+        </div>
+
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20221216/n9nD/639ca1cff997ddfdbddabbe0/point-cove-blue-straight-heart-print-denim-skirt.jpg">
+            <h1>POINT COVE</h1>
+            <p>Heart Print Denim Skirt
+              
+
+            </p>
+            <h2 class="price">  ₹1,519</h2>
+        </div>
+    </div>
+    <script>
+        const men = document.querySelectorAll('.box');
+        document.getElementById('apply-filter').addEventListener('click',applyFilter);
+        
+        function applyFilter() {
+            const minPrice = parseInt(document.getElementById('min-price').value);
+            const maxPrice = parseInt(document.getElementById('max-price').value);
+        
+
+     
+        men.forEach((box) =>{
+            const price = parseInt(box.querySelector('.price').textContent.replace('₹',''));
+            if (price >= minPrice && price <= maxPrice){
+            box.style.display = 'block';  
+            } 
+        
+        else{
+            box.style.display ='none';
+
+        }
+    
+          });
+        }
+    </script>
+    
+</body>
+</html>

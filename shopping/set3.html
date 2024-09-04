@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #men{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+          .box{
+            width: 300px;
+            height: 570px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid burlywood;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .box img{
+          height: 400px;
+          width:300px;
+          transition: 200ms;
+        }
+        .box:hover img{
+            transform: scale(1.02);
+        }
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+    <input type="number" id="min-price" placeholder="min price">
+    <input type="number" id="max-price" placeholder="max price">
+    <button id="apply-filter">applyfilter</button>
+    </div>
+
+    <div id="men">
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240429/UccX/662f9f6905ac7d77bb31f3cb/-473Wx593H-467286732-blue-MODEL.jpg">
+         <h1>VAIDRI CREATION</h1>
+       <p>Girls Woven Lehenga Choli Set
+        </p>
+            
+             <h2 class="price">₹1000
+            </h1>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240319/87D9/65f9966b05ac7d77bbc8b097/-473Wx593H-467186467-maroon-MODEL.jpg">
+            <h1>UFB</h1>
+            <p>Girls Woven Lehenga Choli Set
+            </p>
+
+            <h2 class="price">₹568
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240424/oliZ/6628d0eb16fd2c6e6acd26f2/-473Wx593H-465025782-yellow-MODEL3.jpg">
+            <h1>PSPEACHES</h1>
+            <p>Girls Woven Lehenga Choli Set
+
+
+            </p>
+            <h2 class="price">₹600
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240424/BTbr/6628d0e416fd2c6e6acd26b4/-473Wx593H-465035343-magenta-MODEL.jpg">
+            <h1>PSPEACHES</h1>
+            <p>Girls Woven Lehenga Choli Set
+
+
+            </p>
+            <h2 class="price">₹520
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230628/8sn1/649b5126a9b42d15c9f98047/-473Wx593H-465623957-yellow-MODEL.jpg">
+            <h1>PSPEACHES</h1>
+            <p>Girls Woven Lehenga Choli Set
+
+
+            </p>
+            <h2 class="price">₹900
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230628/GF2c/649b512deebac147fc0f7a52/-473Wx593H-465624360-yellow-MODEL.jpg">
+            <h1>PSPEACHES</h1>
+            <p>Girls Woven Lehenga Choli Set
+
+
+            </p>
+            <h2 class="price">₹700
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240423/Qlye/66270e0a05ac7d77bb1e6f57/-473Wx593H-467270258-multi-MODEL.jpg">
+            <h1>DRIJHA</h1>
+             <p>Girls Woven Lehenga Choli Set
+
+            </p>
+            <h2 class="price">₹1500
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230624/LINN/64969fd5eebac147fcf94cc8/-473Wx593H-465540864-navy-MODEL.jpg">
+            <h1>PSPEACHES</h1>
+            <p>Girls Woven Lehenga Choli Set
+
+            </p>
+            <h2 class="price">₹1,359
+            </h2>
+        </div>
+
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230628/0VCv/649b5f00eebac147fc11c735/-473Wx593H-465624354-pink-MODEL.jpg">
+            <h1>PSPEACHES</h1>
+            <p>Girls Woven Lehenga Choli Set
+              
+
+            </p>
+            <h2 class="price">  ₹1,519</h2>
+        </div>
+    </div>
+    <script>
+        const men = document.querySelectorAll('.box');
+        document.getElementById('apply-filter').addEventListener('click',applyFilter);
+        
+        function applyFilter() {
+            const minPrice = parseInt(document.getElementById('min-price').value);
+            const maxPrice = parseInt(document.getElementById('max-price').value);
+        
+
+     
+        men.forEach((box) =>{
+            const price = parseInt(box.querySelector('.price').textContent.replace('₹',''));
+            if (price >= minPrice && price <= maxPrice){
+            box.style.display = 'block';  
+            } 
+        
+        else{
+            box.style.display ='none';
+
+        }
+    
+          });
+        }
+    </script>
+    
+</body>
+</html>

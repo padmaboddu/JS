@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #men{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+          .box{
+            width: 300px;
+            height: 570px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .box img{
+          height: 400px;
+          width:300px;
+          transition: 200ms;
+        }
+        .box:hover img{
+            transform: scale(1.02);
+        }
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    
+    <input type="number" id="min-price" placeholder="min price">
+    <input type="number" id="max-price" placeholder="max price">
+    <button id="apply-filter">applyfilter</button>
+    </div>
+    <div id="men">
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230314/sqAu/6410920ff997dde6f4f98536/-473Wx593H-469445206-redwhite-MODEL.jpg">
+         
+         <h1>BUMZEE</h1>  
+          <p>Printed 3-Piece Suit Set
+        </p>
+            
+             <h2 class="price">₹546
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20221108/VyrH/636a3401aeb269659c7a2563/-473Wx593H-469283089-navyblue-MODEL.jpg">
+            <h1>BUMZEE
+            </h1>
+            <p>Printed T-Shirt with Shorts & Suspenders Set
+            </p>
+
+            <h2 class="price">₹779
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240702/N63m/668400671d763220faa64ff8/-473Wx593H-700153253-black-MODEL.jpg">
+            <h1>FABZOO</h1>
+            <p>Boys Shorts & Shirt Set
+
+
+            </p>
+            <h2 class="price">₹500
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240420/GjNc/6623185b16fd2c6e6ac28938/-473Wx593H-467257940-blue-MODEL.jpg">
+           
+           <h1>PEELOO</h1>
+            <p>Boys Colourblock Shirt & Shorts Set
+
+
+            </p>
+            <h2 class="price">₹496
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240507/y9me/663a059105ac7d77bb4550ad/-473Wx593H-467310455-blue-MODEL.jpg">
+            <h1>OCVITO</h1>
+            <p>Boys Printed Shirt & Shorts Set
+
+
+            </p>
+            <h2 class="price">₹570
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240623/p29Z/66784cae6f60443f3183ff07/-473Wx593H-700119452-blue-MODEL.jpg">
+            <h1>OCVITO</h1>
+            <p>Boys Printed Shirt & Shorts Set with Short Sleeves
+
+
+            </p>
+            <h2 class="price">₹525
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240725/HV3v/66a248a01d763220fa282d2d/-473Wx593H-442532987-multi-MODEL.jpg">
+             
+            <h1>PLAYDAY</h1>
+            <p>Boys Striped Blazer & T-Shirt Set
+
+            </p>
+            <h2 class="price">₹450
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20231023/q5Fu/6535a06eafa4cf41f55911f2/-473Wx593H-466737547-greymelange-MODEL.jpg">
+            <h1>TOONYPORT</h1>
+            <p>Boys Graphic Print T-Shirt & Joggers Set
+
+            </p>
+            <h2 class="price">₹280
+            </h2>
+        </div>
+
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230925/KcDe/65117994afa4cf41f503ac5b/-473Wx593H-466623546-grey-MODEL.jpg">
+            <h1>TOONYPORT</h1>
+            <p>Graphic Print T-Shirt & Pants Set
+
+            </p>
+            <h2 class="price">₹512</h2>
+        </div>
+    </div>
+    <script>
+        const men = document.querySelectorAll('.box');
+        document.getElementById('apply-filter').addEventListener('click',applyFilter);
+        
+        function applyFilter() {
+            const minPrice = parseInt(document.getElementById('min-price').value);
+            const maxPrice = parseInt(document.getElementById('max-price').value);
+        
+
+     
+        men.forEach((box) =>{
+            const price = parseInt(box.querySelector('.price').textContent.replace('₹',''));
+            if (price >= minPrice && price <= maxPrice){
+            box.style.display = 'block';  
+            } 
+        
+        else{
+            box.style.display ='none';
+
+        }
+    
+          });
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #men{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+          .box{
+            width: 300px;
+            height: 600px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .box img{
+          height: 400px;
+          width:300px;
+          transition: 200ms;
+        }
+        .box:hover img{
+            transform: scale(1.02);
+        }
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <input type="number" id="min-price" placeholder="min price">
+    <input type="number" id="max-price" placeholder="max price">
+    <button id="apply-filter">applyfilter</button>
+    </div>
+    <div id="men">
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240612/no9A/666a34c005ac7d77bb1a68de/-473Wx593H-465903428-grey-MODEL5.jpg">
+            <h1>CINOCCI</h1>
+           <p>Slim Fit Flat Front Cargo Pants with Drawstring</p>
+            <h2 class="price">₹1,040</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20221029/226c/635c213caeb269659c6422f9/-473Wx593H-469349427-charcoal-MODEL.jpg">
+            <h1>THE INDIAN GARAGE CO</h1>
+            <p>Flat-Front Cargo Trousers </p>
+            <h2 class="price">₹857</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240610/STJf/6666f16505ac7d77bbbd99ea/-473Wx593H-469595873-gray-MODEL.jpg">
+            <h1>LEVIS
+            </h1>
+            <p>Men Slim Fit Flat-Front Trousers</p>
+            <h2 class="price">₹2,319</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240418/qVsZ/662139b116fd2c6e6abef391/-473Wx593H-410459165-0488-MODEL.jpg">
+            <h1>GAS</h1>
+            <p>Slim Straight Fit Cotton Trousers</p>
+            <h2 class="price">₹4,799 </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20231219/Lufi/6581b08fafa4cf41f5db0e85/-473Wx593H-469576943-brown-MODEL.jpg">
+            <h1>THE INDIAN GARAGE CO</h1>
+             <p>Men Relaxed Fit Cargo Trousers</p>
+            <h2 class="price">₹657</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20231121/F2xq/655cc2cdddf77915199227ee/-473Wx593H-469570199-brown-MODEL.jpg">
+            <h1>LOUIS PHILIPPE </h1>
+            <p>Men Slim Fit Flat-Front Trousers</p>
+            <h2 class="price">₹1,421</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240528/NUQe/6655ff8805ac7d77bb85c206/-473Wx593H-442223828-brown-MODEL.jpg">
+            <h1>INDIAN TERRAIN</h1>
+             <p>Men Flat-Front Slim Fit Trousers </p>
+            <h2 class="price">₹1,170</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240411/4RBv/6617cf6905ac7d77bb035e24/-473Wx593H-469613665-beige-MODEL.jpg">
+            <h1>ARROW</h1>
+            <p>Men Slim Fit Flat-Front Trousers</p>
+            <h2 class="price">₹1,949</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240703/TveD/66853fae6f60443f313c5ddd/-473Wx593H-700158519-grey-MODEL.jpg">
+            <h1>CELIO </h1>
+            <p>Men Flat-Front Relaxed Fit Trousers</p>
+            <h2 class="price">₹3,440</h2>
+        </div>
+    </div>
+    <script>
+        const men = document.querySelectorAll('.box');
+        document.getElementById('apply-filter').addEventListener('click',applyFilter);
+        
+        function applyFilter() {
+            const minPrice = parseInt(document.getElementById('min-price').value);
+            const maxPrice = parseInt(document.getElementById('max-price').value);
+        
+
+     
+        men.forEach((box) =>{
+            const price = parseInt(box.querySelector('.price').textContent.replace('₹',''));
+            if (price >= minPrice && price <= maxPrice){
+            box.style.display = 'block';  
+            } 
+        
+        else{
+            box.style.display ='none';
+
+        }
+    
+          });
+        }
+    </script>
+    
+    
+</body>
+</html>

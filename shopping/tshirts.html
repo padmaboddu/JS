@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #men{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+          .box{
+            width: 300px;
+            height: 600px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .box img{
+          height: 400px;
+          width:300px;
+          transition: 200ms;
+        }
+        .box:hover img{
+            transform: scale(1.02);
+        }
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <input type="number" id="min-price" placeholder="min price">
+    <input type="number" id="max-price" placeholder="max price">
+    <button id="apply-filter">applyfilter</button>
+    </div>
+    <div id="men">
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230812/bpEp/64d77730eebac147fcc4f16c/-473Wx593H-466428340-black-MODEL.jpg">
+             <h1>BULLMER</h1>
+             <p>Loose Fit Graphic Print Round-Neck T-Shirt</p>
+             <h2 class="price">₹388</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240513/UOPJ/6641b4aa05ac7d77bb56679c/-473Wx593H-465979781-navy-MODEL.jpg">
+            <h1>EYEBOGLER</h1>
+            <p>Colour-block Regular Fit Crew- Neck T-shirt</p>
+            <h2 class="price">₹275</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230628/qqrd/649bb265eebac147fc1d4588/-473Wx593H-465891440-teal-MODEL.jpg">
+            <h1>EYEBOGLER</h1>
+            <p>Typographic Print Slim Fit Polo T-Shirt</p>
+            <h2 class="price">₹325</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240419/nnfP/6622482916fd2c6e6ac0cba2/-473Wx593H-467263583-white-MODEL.jpg">
+            <h1>FORCE</h1>
+            <p>Men Typographic Print Regular Fit Crew-Neck T-Shirt</p>
+            <h2 class="price">₹375</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240229/yynX/65e088a205ac7d77bb896e4c/-473Wx593H-467122381-navy-MODEL.jpg">
+            <h1>OBAAN</h1>
+            <p>Men Floral Print Regular Fit Polo T-Shirt</p>
+            <h2 class="price">₹345</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20231026/L34m/653a3f2cafa4cf41f561654a/-473Wx593H-466735487-grey-MODEL.jpg">
+            <h1>NOBLE MONK </h1>
+            <p>Men Regular Fit Colorblock Round-Neck T-Shirt</p>
+            <h2 class="price">₹325</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240716/81gY/6696aed51d763220fac8aa8d/-473Wx593H-467290851-black-MODEL.jpg">
+            <h1>JUMP CUTS</h1>
+            <p>Men Typographic Print Oversized Fit Hooded T-Shirt</p>
+            <h2 class="price">₹320</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240729/GR0q/66a78b501d763220fa4963ef/-473Wx593H-464918983-blue-MODEL.jpg">
+            <h1>EYEBOGLER</h1>
+            <p>Colour-Blocked Polo T-shirt</p>
+            <h2 class="price">₹275</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/407987147/cofcc_512.webp">
+            <h1>JUMP CUTS</h1>
+            <p>Elegant Trendy T-Shirt For Men | Geometric Print Tshirt For Men | Full Sleeve Tshirt For Boys </p>
+            <h2 class="price">₹450 </h2>
+        </div>
+    </div>
+    <script>
+        const men = document.querySelectorAll('.box');
+        document.getElementById('apply-filter').addEventListener('click',applyFilter);
+        
+        function applyFilter() {
+            const minPrice = parseInt(document.getElementById('min-price').value);
+            const maxPrice = parseInt(document.getElementById('max-price').value);
+        
+
+     
+        men.forEach((box) =>{
+            const price = parseInt(box.querySelector('.price').textContent.replace('₹',''));
+            if (price >= minPrice && price <= maxPrice){
+            box.style.display = 'block';  
+            } 
+        
+        else{
+            box.style.display ='none';
+
+        }
+    
+          });
+        }
+    </script>
+    
+
+    
+</body>
+</html>

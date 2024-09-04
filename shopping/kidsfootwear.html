@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #men{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+          .box{
+            width: 300px;
+            height: 570px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .box img{
+          height: 400px;
+          width:300px;
+          transition: 200ms;
+        }
+        .box:hover img{
+            transform: scale(1.02);
+        }
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <input type="number" id="min-price" placeholder="min price">
+    <input type="number" id="max-price" placeholder="max price">
+    <button id="apply-filter">applyfilter</button>
+    </div>
+    <div id="men">
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/417707285/cdwdm_512.webp">
+         <p>Pinky butterfly sandels</p>
+            <h2 class="price">₹300</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/421645817/ar1is_512.webp">
+            <p>Girls sandals</p>
+            <h2 class="price">₹250</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/421527501/lfij2_512.webp">
+            <p>Styles Kids Boys Kids Boys Sandals</p>
+            <h2 class="price">₹450</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/391639551/ywqcd_512.webp">
+            <p>Pisco Boys Comfortable Sandals</p>
+            <h2 class="price">₹400 </h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/292258852/ltzrc_512.webp">
+            <p>onion l p</p>
+            <h2 class="price">₹400</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/374250290/xjzwh_512.webp">
+            <p>FINOBEL ENTERPRISES kids party wear belly, rainbow multicolor glitter sandals juttis, sandals partywear</p>
+            <h2 class="price">₹500 </h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/351900274/l1cwv_512.webp">
+             <p>Little Tiger Sliders/Flipflops By ONYC - With Back support & Adjustable strap (Unisex)</p>
+            <h2 class="price">₹300</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/412102193/goeng_512.webp">
+            <p>Kids closed toe sandals for boys and girls</p>
+            <h2 class="price">₹280</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/420442026/3yhko_512.webp">
+            <p>Baby Girls kids Led Light Heel sandals and shoes with brightest lighting, shiny, bright upper and skin friendly comforatble memory foamed inner sole - Pink</p>
+            <h2 class="price">₹459</h2>
+        </div>
+    </div>
+    <script>
+        const men = document.querySelectorAll('.box');
+        document.getElementById('apply-filter').addEventListener('click',applyFilter);
+        
+        function applyFilter() {
+            const minPrice = parseInt(document.getElementById('min-price').value);
+            const maxPrice = parseInt(document.getElementById('max-price').value);
+        
+
+     
+        men.forEach((box) =>{
+            const price = parseInt(box.querySelector('.price').textContent.replace('₹',''));
+            if (price >= minPrice && price <= maxPrice){
+            box.style.display = 'block';  
+            } 
+        
+        else{
+            box.style.display ='none';
+
+        }
+    
+          });
+        }
+    </script>
+    
+    
+</body>
+</html>

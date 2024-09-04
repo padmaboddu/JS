@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #men{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+          .box{
+            width: 300px;
+            height: 600px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid burlywood;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .box img{
+          height: 400px;
+          width:300px;
+          transition: 200ms;
+        }
+        .box:hover img{
+            transform: scale(1.02);
+        }
+    
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+
+    <input type="number" id="min-price" placeholder="min price">
+    <input type="number" id="max-price" placeholder="max price">
+    <button id="apply-filter">applyfilter</button>
+    </div>
+
+
+    <div id="men">
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230602/jUG2/64798f3542f9e729d71804db/-473Wx593H-462430958-black-MODEL.jpg">
+             <h1>CAMPUS</h1>
+             <p>Strappy Sandals with Velcro Fatening </p>
+             <h2 class="price"> ₹ 601 </h1>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240604/Wh09/665f1b4105ac7d77bb9c3515/-473Wx593H-700044031-grey-MODEL5.jpg">
+            <h1>KOBURG</h1>
+            <p>Men Clogs Slip-On Sandals</p>
+            <h2 class="price">₹ 587</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240730/vJ8e/66a7e4b86f60443f31d6e467/-473Wx593H-469647347-blackgrey-MODEL.jpg">
+            <h1>NIKE </h1>
+            <p>Men Offcourt Open-Toe Sliders</p>
+            <h2 class="price">₹ 2,495 </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230217/slig/63efb333f997dde6f4aebf64/-473Wx593H-450155906-blue-MODEL.jpg">
+            <h1>ALTHEORY
+            </h1>
+            <p>Colourblock Water-Resistant Slides
+            </p>
+            <h2 class="price">₹ 240
+            </h2>
+
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20231005/kCXv/651ecd26ddf779151921b6d6/-473Wx593H-466256241-olive-MODEL.jpg">
+            <h1>CHUPPS
+            </h1>
+            <p>Thong-Style Flip-Flops
+            </p>
+            <h2 class="price">₹ 747
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230726/x0on/64c0a1e2eebac147fc896e1f/-473Wx593H-462430959-grey-MODEL3.jpg">
+            <h1>CAMPUS
+            </h1>
+            <p>Strappy Sandals with Velcro Fastening
+            </p>
+            <h2 class="price">₹ 652
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230623/hfqk/6494e443d55b7d0c63a9fa89/-473Wx593H-464502902-brown-MODEL6.jpg">
+            <h1>LIBERTY</h1>
+            <p>Open-Toe Sandals with Velcro Fastening
+            </p>
+            <h2 class="price">₹1,999
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20220808/B97K/62f103c2f997dd03e22c04fd/-473Wx593H-450150922-brown-MODEL.jpg">
+            <h1>SPARX</h1>
+            <p>Men Flat Heel Sandals with Velcro Fastening
+            </p>
+            <h2 class="price">₹500
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20231127/3JNa/6564ab54ddf7791519a03735/-473Wx593H-469534334-black-MODEL.jpg">
+            <h1>PUMA
+            </h1>
+            <p>Men Cool Cat 2.0 Slides
+            </p>
+             <h2 class="price">₹2,189
+            </h2>
+        </div>
+    </div>
+    <script>
+        const men = document.querySelectorAll('.box');
+        document.getElementById('apply-filter').addEventListener('click',applyFilter);
+        
+        function applyFilter() {
+            const minPrice = parseInt(document.getElementById('min-price').value);
+            const maxPrice = parseInt(document.getElementById('max-price').value);
+        
+
+     
+        men.forEach((box) =>{
+            const price = parseInt(box.querySelector('.price').textContent.replace('₹',''));
+            if (price >= minPrice && price <= maxPrice){
+            box.style.display = 'block';  
+            } 
+        
+        else{
+            box.style.display ='none';
+
+        }
+    
+          });
+        }
+    </script>
+    
+</body>
+</html>

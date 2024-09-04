@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #men{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+          .box{
+            width: 300px;
+            height: 600px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .box img{
+          height: 400px;
+          width:300px;
+          transition: 200ms;
+        }
+        .box:hover img{
+            transform: scale(1.02);
+        }
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <input type="number" id="min-price" placeholder="min price">
+    <input type="number" id="max-price" placeholder="max price">
+    <button id="apply-filter">applyfilter</button>
+    </div>
+    <div id="men">
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240321/uzM9/65fc52ca05ac7d77bbd01167/-473Wx593H-441778164-denimblue-MODEL.jpg">
+            <h1>GAP</h1>
+        <p>Denim Jacket with Flap Pockets</p>
+            <h2 class="price">₹2,500</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240415/L5VT/661d418b16fd2c6e6ab2077f/-473Wx593H-469595482-blue-MODEL.jpg">
+            <h1>LEVIS</h1>
+            <p>Men Regular Fit Jacket</p>
+            <h2 class="price">₹3,399</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230626/5lvb/6499be67eebac147fc0a610f/-473Wx593H-466305975-blue-MODEL.jpg">
+            <h2 class="price">JACK & JONES</h2>
+            <p>Quilted Zip-Front Jacket</p>
+            <h2 class="price">₹2,220</h1>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230720/7mTL/64b956e5eebac147fc7ef896/-473Wx593H-443020214-navy-MODEL.jpg">
+            <h1>NETPLAY</h1>
+            <p>Zip-Front Bomber Jacket with Placement Logo</p>
+            <h2 class="price">₹900</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240514/rvrw/66433d6c16fd2c6e6a0396c3/-473Wx593H-462631377-blue-MODEL.jpg">
+            <h1>VOXATI</h1>
+            <p>Washed Jacket with Flap Pockets</p>
+            <h2 class="price">₹858</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20220729/2yzG/62e3ed78aeb26921afac2b74/-473Wx593H-462029786-blue-MODEL2.jpg">
+            <h1>KOTTY</h1>
+            <p>Button-Down Jacket with Buttoned Flap Pockets</p>
+            <h2 class="price">₹600</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230831/mJL6/64f0b747ddf77915198e30d2/-473Wx593H-443020987-jetblack-MODEL.jpg">
+            <h1>PERFORMAX</h1>
+             <p>Regular Fit Track Jacket</p>
+            <h2 class="price">₹510</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230919/ZRqZ/6509bd3bafa4cf41f5f19e35/-473Wx593H-443011849-darkblue-MODEL2.jpg">
+            <h1>PERFORMAX</h1>
+            <p>Zip-Front Fastdry Regular Fit Jacket</p>
+            <h2 class="price">₹1,019</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20231111/EarZ/654fa06eddf77915197fe9fa/-473Wx593H-410408564-98t-MODEL.jpg">
+            <h1>SUPERDRY</h1>
+            <p>Sherpa Workwear Hybrid Jacket</p>
+            <h2 class="price">₹5,850</h2>
+        </div>
+    </div>
+    <script>
+        const men = document.querySelectorAll('.box');
+        document.getElementById('apply-filter').addEventListener('click',applyFilter);
+        
+        function applyFilter() {
+            const minPrice = parseInt(document.getElementById('min-price').value);
+            const maxPrice = parseInt(document.getElementById('max-price').value);
+        
+
+     
+        men.forEach((box) =>{
+            const price = parseInt(box.querySelector('.price').textContent.replace('₹',''));
+            if (price >= minPrice && price <= maxPrice){
+            box.style.display = 'block';  
+            } 
+        
+        else{
+            box.style.display ='none';
+
+        }
+    
+          });
+        }
+    </script>
+    
+</body>
+</html>

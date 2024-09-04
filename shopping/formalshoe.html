@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #men{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+          .box{
+            width: 300px;
+            height: 600px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid burlywood;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .box img{
+          height: 400px;
+          width:300px;
+          transition: 200ms;
+        }
+        .box:hover img{
+            transform: scale(1.02);
+        }
+    
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+
+    <input type="number" id="min-price" placeholder="min price">
+    <input type="number" id="max-price" placeholder="max price">
+    <button id="apply-filter">applyfilter</button>
+    </div>
+    <div id="men">
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240429/jDg9/662ea7f716fd2c6e6ad932df/-473Wx593H-467285832-black-MODEL.jpg">
+            <h1>MACTREE
+
+            </h1>
+        <p>Men Perforated Round-Toe Loafers
+
+        </p>
+            
+             <h2 class="price">₹777
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240719/o5f5/66998df51d763220faf7778f/-473Wx593H-461370283-brown-MODEL2.jpg">
+            <h1>MACTREE
+
+            </h1>
+            <p>Formal Lace-Up Shoes with Round Toe
+
+            </p>
+            <h2 class="price">₹728
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20211118/Ctty/619560d0aeb2690110caab87/-473Wx593H-460991618-coffee-MODEL.jpg">
+            <h1>ARBUNORE
+
+            </h1>
+            <p>Formal Oxford Shoes with Toe-Cap
+
+            </p>
+            <h2 class="price">₹1,200
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240108/XNWn/659c291f54c30e62769caa87/-473Wx593H-466961618-brown-MODEL.jpg">
+            <h1>SHUAN
+
+            </h1>
+            <p>Slip-On Shoes with Synthetic upper
+
+            </p>
+            <h2 class="price">₹600
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230623/FWn0/6494c18142f9e729d77cc1f9/-473Wx593H-464457065-black-MODEL.jpg">
+            <h1>SHOE ISLAND
+
+            </h1>
+            <p>Round-Toe Lace-Up Derbys
+
+            </p>
+            <h2 class="price">₹719
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230629/f62s/649cc70feebac147fc30b484/-473Wx593H-466044112-black-MODEL.jpg">
+            <h1>SHUAN
+
+            </h1>
+            <p>Pointed-Toe Derbys with Lace Fastening
+
+            </p>
+            <h2 class="price">₹570
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240429/azG8/662f20cb16fd2c6e6ad9f607/-473Wx593H-467285847-brown-MODEL.jpg">
+            <h1>MACTREE</h1>
+             <p>Men Perforated Round-Toe Loafers
+            </p>
+            <h2 class="price">₹777
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240322/HsYy/65fdb5ee16fd2c6e6a79d2b7/-473Wx593H-467193993-brown-MODEL4.jpg">
+            <h1>BXXY
+            </h1>
+            <p>Men Round-Toe Lace-Up Derbys Shoes
+            </p>
+            <h2 class="price">₹1,100
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240731/NwwY/66aa696a6f60443f31de387f/-473Wx593H-700202434-black-MODEL.jpg">
+            <h1>RED TAPE
+            </h1>
+            <p>Men Round-Toe Derbys with Lace Fastening
+            </p>
+            <h2 class="price">₹1,440</h2>
+        </div>
+    </div>
+    <script>
+        const men = document.querySelectorAll('.box');
+        document.getElementById('apply-filter').addEventListener('click',applyFilter);
+        
+        function applyFilter() {
+            const minPrice = parseInt(document.getElementById('min-price').value);
+            const maxPrice = parseInt(document.getElementById('max-price').value);
+        
+
+     
+        men.forEach((box) =>{
+            const price = parseInt(box.querySelector('.price').textContent.replace('₹',''));
+            if (price >= minPrice && price <= maxPrice){
+            box.style.display = 'block';  
+            } 
+        
+        else{
+            box.style.display ='none';
+
+        }
+    
+          });
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #men{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+          .box{
+            width: 300px;
+            height: 570px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid;
+            border-radius: 10px;
+            text-align: center;
+
+        }
+        .box img{
+          height: 400px;
+          width:300px;
+          transition: 200ms;
+        }
+        .box:hover img{
+            transform: scale(1.02);
+        }
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="container">
+    <input type="number" id="min-price" placeholder="min price">
+    <input type="number" id="max-price" placeholder="max price">
+    <button id="apply-filter">applyfilter</button>
+    </div>
+    </div>
+    <div id="men">
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240405/n7FQ/660f29a916fd2c6e6a9e348a/-473Wx593H-467099247-blue-MODEL.jpg">
+            <h1>AZIRA</h1>
+            <p>Women Floral Print Regular Fit Peplum Top</p>
+             <h2 class="price">₹620</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240604/a5ql/665e223c05ac7d77bb998720/-473Wx593H-700038442-green-MODEL6.jpg">
+            <h1>ANANDITA </h1>
+            <p>Women Floral Print Regular Fit Top </p>
+            <h2 class="price">₹525</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240619/kDUR/6672e0df6f60443f3158a904/-473Wx593H-700043079-yellow-MODEL.jpg">
+            <h1>LERIYA FASHION</h1>
+            <p>Women Floral Print Regular Fit Top</p>
+            <h2 class="price">₹690 </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230602/hWYa/647a19b742f9e729d71f5ba0/-473Wx593H-466229795-green-MODEL.jpg">
+            <h1>KRIJET</h1>
+            <p>Floral Print Collar-Neck Top</p>
+            <h2 class="price">₹324</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20231005/2Lu3/651e1033afa4cf41f527de3b/-473Wx593H-466670298-black-MODEL.jpg">
+            <h1>HALFFGREY</h1>
+                <p>V-Neck Top with Curved Hem </p>
+            <h2 class="price">₹813</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230703/1jRm/64a2cf91eebac147fc4744f3/-473Wx593H-466327072-black-MODEL.jpg">
+            <h1>BERRYBIRD </h1>
+            <p>Women Ribbed Relaxed Fit Top</p>
+            <h2 class="price">₹362 </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240727/J5w2/66a3fb291d763220fa385231/-473Wx593H-700233656-cream-MODEL.jpg">
+            <h1>THE DRY STATE</h1>
+            <p>Women Regular Fit Crew-Neck Top</p>
+            <h2 class="price">₹416</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230727/2Iqb/64c19d93a9b42d15c971b5eb/-473Wx593H-466387487-navy-MODEL.jpg">
+            <h1>FASHION 2 WEAR </h1>
+            <p>Floral Print Square-Neck Top</p>
+            <h2 class="price">₹500 </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240511/nXJ1/663ec8fa05ac7d77bb52923e/-473Wx593H-467321757-blue-MODEL.jpg">
+            <h1>TRENDISTA </h1>
+            <p>Women Knitted Slim Fit Top  </p>
+            <h2 class="price">₹800 </h2>
+        </div>
+    </div>
+    <script>
+        const men = document.querySelectorAll('.box');
+        document.getElementById('apply-filter').addEventListener('click',applyFilter);
+        
+        function applyFilter() {
+            const minPrice = parseInt(document.getElementById('min-price').value);
+            const maxPrice = parseInt(document.getElementById('max-price').value);
+        
+
+     
+        men.forEach((box) =>{
+            const price = parseInt(box.querySelector('.price').textContent.replace('₹',''));
+            if (price >= minPrice && price <= maxPrice){
+            box.style.display = 'block';  
+            } 
+        
+        else{
+            box.style.display ='none';
+
+        }
+    
+          });
+        }
+    </script>
+    
+    
+</body>
+</html>

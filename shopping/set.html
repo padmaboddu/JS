@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #men{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+          .box{
+            width: 300px;
+            height: 570px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .box img{
+          height: 400px;
+          width:300px;
+          transition: 200ms;
+        }
+        .box:hover img{
+            transform: scale(1.02);
+        }
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <input type="number" id="min-price" placeholder="min price">
+    <input type="number" id="max-price" placeholder="max price">
+    <button id="apply-filter">applyfilter</button>
+    </div>
+    <div id="men">
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240718/MNjz/66991f166f60443f317924f9/-473Wx593H-700207052-white-MODEL.jpg">
+         <h1>TIOR</h1>
+       <p>Boys Striped Regular Fit Shirt
+        </p>
+            
+             <h2 class="price">₹540
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240321/vw0l/65fc357c05ac7d77bbcf3ec2/-473Wx593H-467190386-grey-MODEL.jpg">
+            <h1>TIOR</h1>
+            <p>Boys Striped Regular Fit Shirt
+            </p>
+
+            <h2 class="price">₹568
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240714/yVtj/6693fec66f60443f312295fc/-473Wx593H-700065446-black-MODEL.jpg">
+            <h1>TIOR</h1>
+            <p>Boys Striped Regular Fit Shirt
+
+
+            </p>
+            <h2 class="price">₹600
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240304/NFq5/65e4d3d605ac7d77bb93e9ce/tior-cream-regular-boys-printed-regular-fit-shirt.jpg">
+            <h1>TIOR</h1>
+            <p>Boys Printed Regular Fit Shirt
+
+
+            </p>
+            <h2 class="price">₹520
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230808/5kbB/64d25c4deebac147fcb4a183/-473Wx593H-443015248-wine-MODEL.jpg">
+            <h1>YB DNMX</h1>
+            <p>Cotton Hooded Shirt
+
+
+            </p>
+            <h2 class="price">₹442
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230907/1A0J/64f9b988afa4cf41f5cf1d5a/-473Wx593H-442260745-red-MODEL.jpg">
+            <h1>POINT COVE</h1>
+            <p>Checked Hooded Shirt
+
+
+            </p>
+            <h2 class="price">₹357
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230222/rBPq/63f63954aeb26924e3862a78/-473Wx593H-441775083-multi-MODEL.jpg">
+            <h1>POINT COVE</h1>
+             <p>Checked Shirt with Buttoned Flap Pockets
+
+            </p>
+            <h2 class="price">₹442
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240710/A1N0/668e82301d763220fa4fad34/-473Wx593H-469620780-olive-MODEL.jpg">
+            <h1>U.S. POLO ASSN.</h1>
+            <p>Boys Regular Fit Shirt
+
+            </p>
+            <h2 class="price">₹1,359
+            </h2>
+        </div>
+
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240710/1uMf/668e7f6c1d763220fa4f9f3c/-473Wx593H-469620787-navy-MODEL.jpg">
+            <h1>U.S. POLO ASSN.</h1>
+            <p>Boys Checked Regular Fit Shirt
+              
+
+            </p>
+            <h2 class="price">  ₹1,519</h2>
+        </div>
+    </div>
+    <script>
+        const men = document.querySelectorAll('.box');
+        document.getElementById('apply-filter').addEventListener('click',applyFilter);
+        
+        function applyFilter() {
+            const minPrice = parseInt(document.getElementById('min-price').value);
+            const maxPrice = parseInt(document.getElementById('max-price').value);
+        
+
+     
+        men.forEach((box) =>{
+            const price = parseInt(box.querySelector('.price').textContent.replace('₹',''));
+            if (price >= minPrice && price <= maxPrice){
+            box.style.display = 'block';  
+            } 
+        
+        else{
+            box.style.display ='none';
+
+        }
+    
+          });
+        }
+    </script>
+    
+</body>
+</html>

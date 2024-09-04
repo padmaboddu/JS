@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #men{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+          .box{
+            width: 300px;
+            height: 500px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .box img{
+          height: 400px;
+          width:300px;
+          transition: 200ms;
+        }
+        .box:hover img{
+            transform: scale(1.02);
+        }
+    
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <input type="number" id="min-price" placeholder="min price">
+    <input type="number" id="max-price" placeholder="max price">
+    <button id="apply-filter">applyfilter</button>
+    </div>
+    <div id="men">
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/223455493/n7ahm_512.webp">
+            <p>Fashionable Women's Pocket Jeggings </p>
+             <h2 class="price">₹250</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/28918706/fdenr_512.webp">
+            <p>Stylish Glamarous Women Jeggings</p>
+            <h2 class="price">₹395</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/328123453/e091s_512.webp">
+            <p>trendy womens pocket jegging sky blue
+            </p>
+            <h2 class="price">₹720</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/311928966/qcpsw_512.webp">
+            <p>Kitty patch denim joggers for women</p>
+            <h2 class="price">₹863</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/397191073/ztyl8_512.webp">
+            <p>Stylish Ladies Jegging Printed combo pack of 2</p>
+            <h2 class="price">₹500</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/365491872/o2ycw_512.webp">
+            <p>KGN HUB Yoga Gym Track Pants Jegging</p>
+            <h2 class="price">₹850</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/343681426/15pjx_512.webp">
+            <p>Yoga Track Pant Best For Gym&Yoga Classi Look Comfortable Material</p>
+            <h2 class="price">₹494 </h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/419579721/lrncq_512.webp">
+            <p>womens staylish jeggings</p>
+            <h2 class="price">₹300 </h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/307030373/bg6b1_512.webp">
+            <p>Stylish Comfort Summer Jagging </p>
+            <h2 class="price">₹300</h2>
+        </div>
+    </div>
+    <script>
+        const men = document.querySelectorAll('.box');
+        document.getElementById('apply-filter').addEventListener('click',applyFilter);
+        
+        function applyFilter() {
+            const minPrice = parseInt(document.getElementById('min-price').value);
+            const maxPrice = parseInt(document.getElementById('max-price').value);
+        
+
+     
+        men.forEach((box) =>{
+            const price = parseInt(box.querySelector('.price').textContent.replace('₹',''));
+            if (price >= minPrice && price <= maxPrice){
+            box.style.display = 'block';  
+            } 
+        
+        else{
+            box.style.display ='none';
+
+        }
+    
+          });
+        }
+    </script>
+    
+</body>
+</html>

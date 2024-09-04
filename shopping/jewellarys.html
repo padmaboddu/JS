@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #men{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+          .box{
+            width: 300px;
+            height: 570px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid burlywood;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .box img{
+          height: 400px;
+          width:300px;
+          transition: 200ms;
+        }
+        .box:hover img{
+            transform: scale(1.02);
+        }
+    
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <input type="number" id="min-price" placeholder="min price">
+    <input type="number" id="max-price" placeholder="max price">
+    <button id="apply-filter">applyfilter</button>
+    </div>
+    <div id="men">
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/58488458/ug4pq_512.webp">
+        <p>Allure Unique Bracelet & Bangles </p>
+            <h2 class="price">₹242</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/226179321/ibq70_512.webp">
+            <p>Jewels Galaxy Gold Plated Roman Numbers engraved Stone Studded Korean Bracelet For Women and Girls</p>
+            <h2 class="price">₹199</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/372504270/xd4yw_512.webp">
+            <p>Avirah Pearls Designer CZ Jhumkhas with Pearls Beats for Women's & Girls</p>
+            <h2 class="price">₹278</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/387526522/f6las_512.webp">
+            <p>PREMIUM JEWELLERY SET BRASS GOLD PLATED ( GOLD AND ROSE) XAMPON</p>
+            <h2 class="price">₹350</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/418483873/5cxcl_512.webp">
+            <p>Silver Crystal AD Jewellery Necklace Set (1432)</p>
+            <h2 class="price">₹200</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/374810083/9yg0e_512.webp">
+            <p>RARE1STUDIO I Special Heart Diamond Valentine Gift For Womens & Girls I Size : Adjustable I Wear At Any Occasion</p>
+            <h2 class="price">₹150</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/249052260/klhxv_512.webp">
+             <p>Fancy Bracelet For Women And Girls </p>
+            <h2 class="price">₹250</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/405048121/a49eg_512.webp">
+            <p>Gold Heart Shap Necklace Chain Fancy Micro Gold Plated Pendent Set For Girls And Women...Pack Of </p>
+            <h2 class="price">₹92</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/178898536/vdnjl_512.webp">
+            <p>Bhumi09 Allure Fancy Traditional Latest Chain Pendant Short Design Trending For Women Stylish ( Festival Offer )</p>
+            <h2 class="price">₹350</h2>
+        </div>
+    </div>
+    <script>
+        const men = document.querySelectorAll('.box');
+        document.getElementById('apply-filter').addEventListener('click',applyFilter);
+        
+        function applyFilter() {
+            const minPrice = parseInt(document.getElementById('min-price').value);
+            const maxPrice = parseInt(document.getElementById('max-price').value);
+        
+
+     
+        men.forEach((box) =>{
+            const price = parseInt(box.querySelector('.price').textContent.replace('₹',''));
+            if (price >= minPrice && price <= maxPrice){
+            box.style.display = 'block';  
+            } 
+        
+        else{
+            box.style.display ='none';
+
+        }
+    
+          });
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #men{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+          .box{
+            width: 300px;
+            height: 620px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid burlywood;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .box img{
+          height: 400px;
+          width:300px;
+          transition: 200ms;
+        }
+        .box:hover img{
+            transform: scale(1.02);
+        }
+    
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <input type="number" id="min-price" placeholder="min price">
+    <input type="number" id="max-price" placeholder="max price">
+    <button id="apply-filter">applyfilter</button>
+    </div>
+    <div id="men">
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240302/yhRJ/65e22b5516fd2c6e6a34c06f/-473Wx593H-467126006-green-MODEL.jpg">
+         <h1>TOONYPORT</h1>
+       <p>Girl Floral Print Shorts & Top Set
+        </p>
+            
+             <h2 class="price">₹540
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240801/Sp8S/66ab36876f60443f31df3bd4/-473Wx593H-466941429-red-MODEL.jpg">
+            <h1>NITE FLITE</h1>
+            <p>Girls Star Print Shirt & Pyjamas Set
+            </p>
+
+            <h2 class="price">₹568
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240406/7Ama/6610510105ac7d77bbf98c0d/-473Wx593H-467228116-multi-MODEL.jpg">
+            <h1>TRAMPOLINE</h1>
+            <p>Pack of 2 Girl Graphic Print Tops & Shorts
+
+
+            </p>
+            <h2 class="price">₹600
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240611/hvaR/66681e5b16fd2c6e6a8a809d/-473Wx593H-461536978-grey-MODEL.jpg">
+            <h1>CHERRY CRUMBLE BY NITT HYMAN
+                </h1>
+            <p>Graphic Print Nightsuit Set
+
+
+            </p>
+            <h2 class="price">₹520
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230623/kcys/649544d742f9e729d78f201f/-473Wx593H-464646136-green-MODEL.jpg">
+            <h1>BABYWISH</h1>
+            <p>Graphic Print Nightsuit Set
+
+
+            </p>
+            <h2 class="price">₹442
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230602/KeQO/6479a04a42f9e729d71a4f6a/-473Wx593H-466227875-offwhite-MODEL.jpg">
+            <h1>CLT.S
+            </h1>
+            <p> Animal Printed Nightsuit Set
+
+
+            </p>
+            <h2 class="price">₹357
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240410/hbY5/6616bed216fd2c6e6aa9c2af/-473Wx593H-467243588-blue-MODEL.jpg">
+            <h1>CLT.S
+               </h1>
+             <p> Boy Striped Shorts & T-Shirt Set
+
+            </p>
+            <h2 class="price">₹442
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240410/snnv/6616bdea16fd2c6e6aa9a434/-473Wx593H-467243584-blue-MODEL.jpg">
+            <h1>CLT.S
+                </h1>
+            <p>Boy Striped Lounge Pants & T-Shirt Set
+
+            </p>
+            <h2 class="price">₹1,359
+            </h2>
+        </div>
+
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240410/s1eK/6615bfec16fd2c6e6aa7db50/-473Wx593H-467240755-yellow-MODEL.jpg">
+            <h1>CLT.S
+              </h1>
+            <p>  Boy Graphic Print Lounge Pants & T-Shirt Sets
+              
+
+            </p>
+            <h2 class="price">  ₹1,519</h2>
+        </div>
+    </div>
+    <script>
+        const men = document.querySelectorAll('.box');
+        document.getElementById('apply-filter').addEventListener('click',applyFilter);
+        
+        function applyFilter() {
+            const minPrice = parseInt(document.getElementById('min-price').value);
+            const maxPrice = parseInt(document.getElementById('max-price').value);
+        
+
+     
+        men.forEach((box) =>{
+            const price = parseInt(box.querySelector('.price').textContent.replace('₹',''));
+            if (price >= minPrice && price <= maxPrice){
+            box.style.display = 'block';  
+            } 
+        
+        else{
+            box.style.display ='none';
+
+        }
+    
+          });
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #men{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+          .box{
+            width: 300px;
+            height: 600px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid burlywood;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .box img{
+          height: 400px;
+          width:300px;
+          transition: 200ms;
+        }
+        .box:hover img{
+            transform: scale(1.02);
+        }
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+   
+    <input type="number" id="min-price" placeholder="min price">
+    <input type="number" id="max-price" placeholder="max price">
+    <button id="apply-filter">applyfilter</button>
+</div>
+
+
+    <div id="men">
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230418/RlUL/643ed59a711cf97ba73129ab/-473Wx593H-469431476-grey-MODEL.jpg">
+            <h1>ARBUNORE
+            </h1>
+        <p>Panelled Mid-Top Lace-Up Shoes
+
+        </p>
+            
+             <h2 class="price">$ 1617
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240116/4GMR/65a604c216fd2c6e6aa9d7c4/-473Wx593H-466840281-navy-MODEL.jpg">
+            <h1>ASIAN
+            </h1>
+            <p>Men Round-Toe Casual Shoes with Lace Fastening
+
+            </p>
+            <h2 class="price">$ 521
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20220927/Q6jB/63333229aeb269dbb3ab05cb/-473Wx593H-469163724-white-MODEL.jpg">
+            <h1>ARBUNORE
+            </h1>
+            <p>Low-Top Lace-Up Casual Shoes
+
+            </p>
+            <h2 class="price">$ 1440
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20231227/crxj/658c26ccafa4cf41f5eeeea3/-473Wx593H-466922614-brown-MODEL.jpg">
+            <h1>CODE BY LIFESTYLE </h1>
+            <p>Men Lace-Up Casual Shoes</p>
+            <h2 class="price">$ 863
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240226/EbZV/65dcb41e05ac7d77bb7b8cac/-473Wx593H-469581865-black-MODEL.jpg">
+            <h1>NIKE
+
+            </h1>
+            <p>Downshifter 13 Lace-Up Running Shoes
+
+            </p>
+            <h2 class="price">₹$ 3,694
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240507/y0Fv/6639596916fd2c6e6aee68a7/-473Wx593H-467303086-brown-MODEL.jpg">
+            <h1>LIBERTY
+
+            </h1>
+            <p>Men Heeled Casual Shoe with Lace Fastening
+
+            </p>
+                <h2 class="price">$ 1,260
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230413/epAW/6437ed63907deb497adedce3/-473Wx593H-450146171-tan-MODEL.jpg">
+            <h1>LEE COOPER
+            </h1>
+             <p>Lace-Up Derby Shoes
+            </p>
+            <h2 class="price">$ 2,699
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230707/Hbwz/64a82acfeebac147fc5d1607/-473Wx593H-410395024-217-MODEL.jpg">
+            <h1>STEVE MADDEN
+            </h1>
+            <p>Remmy Leather Driver Shoes
+            </p>
+            <h2 class="price">$ 8,000
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20231221/IILl/65844dcdafa4cf41f5e18344/-473Wx593H-466445159-navy-MODEL.jpg">
+            <h1>CAMPUS
+            </h1>
+            <p>Slip-On Casual Shoes
+            </p>
+            <h2 class="price">$ 743</h2>
+        </div>
+    </div>
+    <script>
+        const men = document.querySelectorAll('.box');
+        document.getElementById('apply-filter').addEventListener('click',applyFilter);
+        
+        function applyFilter() {
+            const minPrice = parseInt(document.getElementById('min-price').value);
+            const maxPrice = parseInt(document.getElementById('max-price').value);
+        
+
+     
+        men.forEach((box) =>{
+            const price = parseInt(box.querySelector('.price').textContent.replace('$',''));
+            if (price >= minPrice && price <= maxPrice){
+            box.style.display = 'block';  
+            } 
+        
+        else{
+            box.style.display ='none';
+
+        }
+    
+          });
+        }
+    </script>
+    
+</body>
+
+</html>

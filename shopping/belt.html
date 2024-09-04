@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #men{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+          .box{
+            width: 300px;
+            height: 600px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .box img{
+          height: 400px;
+          width:300px;
+          transition: 200ms;
+        }
+        .box:hover img{
+            transform: scale(1.02);
+        }
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+
+    <input type="number" id="min-price" placeholder="min price">
+    <input type="number" id="max-price" placeholder="max price">
+    <button id="apply-filter">applyfilter</button>
+</div>
+    <div id="men">
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230810/v4Jp/64d4e8aeeebac147fcbcdfab/-473Wx593H-466442583-black-MODEL.jpg">
+            <h1>REDHORNS
+
+            </h1>
+        <p>Webbed Leather Slim Belt
+
+        </p>
+            
+       <h2 class="price">₹ 725
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20220811/q4mJ/62f52a63f997dd03e23df095/-473Wx593H-450152463-black-MODEL.jpg">
+            <h1>DNMX
+
+            </h1>
+            <p>Striped Leather Belt
+
+            </p>
+            <h2 class="price">₹ 699
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240726/anL2/66a2b3c76f60443f31b6785e/-473Wx593H-700228390-black-MODEL.jpg">
+            <h1>TOMMY HILFIGER
+
+            </h1>
+            <p>Leather Reversible Belt with Tang-Buckle Closure
+
+            </p>
+            <h2 class="price">₹ 2,999
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240316/Wdc9/65f4a99516fd2c6e6a616844/-473Wx593H-467171005-tan-MODEL.jpg">
+            <h1>TEAKWOOD LEATHERS
+
+            </h1>
+            <p>Men Textured Wide Belt with Buckle Closure
+
+            </p>
+            <h2 class="price">₹ 843
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240723/wNF3/669f34311d763220fa109605/-473Wx593H-700165704-brown-MODEL.jpg">
+            <h1>RED TAPE
+
+            </h1>
+            <p>Men Wide Belt with Tang-Buckle Closure
+
+            </p>
+            <h2 class="price">₹ 720
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240612/5hR9/666aec4a1d763220fa89e6d5/-473Wx593H-462495898-blue-MODEL.jpg">
+            <h1>KASTNER
+
+            </h1>
+            <p>Braided Webbed Belt with Tang Buckle
+
+            </p>
+            <h2 class="price">₹ 405
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240314/lZT4/65f30d4405ac7d77bbb5a549/-473Wx593H-467165430-black-MODEL.jpg">
+            <h1>LOREM
+            </h1>
+             <p>Men Belt with Buckle Closure
+            </p>
+            <h2 class="price">₹ 336
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240620/HYiX/667403436f60443f315afb27/-473Wx593H-700107989-black-MODEL.jpg">
+            <h1>SAZARA
+            </h1>
+            <p>Men Classic Belt
+            </p>
+            <h2 class="price">₹ 220
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230628/DGdz/649bc4eba9b42d15c9097c84/-473Wx593H-465871683-brown-MODEL.jpg">
+            <h1>WINSOME DEAL
+            </h1>
+            <p>Wide Belt with Metal Accent
+            </p>
+            <h2 class="price">₹ 360</h2>
+        </div>
+    </div>
+    <script>
+        const men = document.querySelectorAll('.box');
+        document.getElementById('apply-filter').addEventListener('click',applyFilter);
+        
+        function applyFilter() {
+            const minPrice = parseInt(document.getElementById('min-price').value);
+            const maxPrice = parseInt(document.getElementById('max-price').value);
+        
+
+     
+        men.forEach((box) =>{
+            const price = parseInt(box.querySelector('.price').textContent.replace('₹',''));
+            if (price >= minPrice && price <= maxPrice){
+            box.style.display = 'block';  
+            } 
+        
+        else{
+            box.style.display ='none';
+
+        }
+    
+          });
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #men{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+          .box{
+            width: 300px;
+            height: 600px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid burlywood;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .box img{
+          height: 400px;
+          width:300px;
+          transition: 200ms;
+        }
+        .box:hover img{
+            transform: scale(1.02);
+        }
+    
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <input type="number" id="min-price" placeholder="min price">
+    <input type="number" id="max-price" placeholder="max price">
+    <button id="apply-filter">applyfilter</button>
+    </div>
+    <div id="men">
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240116/xN6U/65a5da2c8cdf1e0df5b8eae8/-473Wx593H-466985183-brown-MODEL3.jpg">
+            <h1>SHOETOPIA </h1>
+           <p>Women Orthopedic Sling-Back Sandals </p>
+            <h2 class="price">₹740</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230824/89eI/64e77989afa4cf41f577b547/-473Wx593H-461546128-blue-MODEL.jpg">
+            <h1>SHEZONE </h1>
+            <p>Printed T-strap Slip-On Flat Sandals</p>
+            <h2 class="price">₹570</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240729/7Poo/66a6c5451d763220fa47d07a/-473Wx593H-700236234-black-MODEL.jpg">
+            <h1>MAX </h1>
+            <p>Women Embellished Straps Slip-On Flat Sandals</p>
+            <h2 class="price">₹799
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230628/1dHS/649bb9f5a9b42d15c908307a/-473Wx593H-465868226-cream-MODEL.jpg">
+            <h1>SHOETOPIA</h1>
+            <p>Slingback Flat Sandals </p>
+            <h2 class="price">₹640
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240722/K0rD/669d63b11d763220fa0afde0/-473Wx593H-700188226-black-MODEL.jpg">
+            <h1>SHOETOPIA </h1>
+            <p>Women Open-Toe Slip-On Sandals</p>
+            <h1>₹600</h1>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240507/oA6t/663a409b16fd2c6e6af07984/-473Wx593H-467292400-beige-MODEL.jpg">
+            <h1>LAYASA</h1>
+            <p>Women Slip-On Clogs with Lace Fastening</p>
+            <h2 class="price">₹399
+            </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230921/MjSb/650c1fe1afa4cf41f5f8679a/-473Wx593H-466507126-black-MODEL.jpg">
+            <h1>SHOETOPIA</h1>
+             <p>Kitten Heeled Sandals with Sling-Back</p>
+            <h2 class="price">₹640 </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240629/N6RQ/667f8fc76f60443f3104f216/-473Wx593H-700032755-cream-MODEL.jpg">
+            <h1>TRASE</h1>
+            <p>Women Slingback Flat Sandals </p>
+            <h2 class="price">₹684</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20231110/CujS/654e4336afa4cf41f5822a29/-473Wx593H-469387099-white-MODEL.jpg">
+            <h1>RED TAPE</h1>
+            <p>Women Leaf Print Slides </p>
+            <h2 class="price">₹550</h2>
+        </div>
+    </div>
+    <script>
+        const men = document.querySelectorAll('.box');
+        document.getElementById('apply-filter').addEventListener('click',applyFilter);
+        
+        function applyFilter() {
+            const minPrice = parseInt(document.getElementById('min-price').value);
+            const maxPrice = parseInt(document.getElementById('max-price').value);
+        
+
+     
+        men.forEach((box) =>{
+            const price = parseInt(box.querySelector('.price').textContent.replace('₹',''));
+            if (price >= minPrice && price <= maxPrice){
+            box.style.display = 'block';  
+            } 
+        
+        else{
+            box.style.display ='none';
+
+        }
+    
+          });
+        }
+    </script>
+    
+</body>
+
+</html>

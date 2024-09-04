@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #men{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+          .box{
+            width: 300px;
+            height: 570px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .box img{
+          height: 400px;
+          width:300px;
+          transition: 200ms;
+        }
+        .box:hover img{
+            transform: scale(1.02);
+        }
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <input type="number" id="min-price" placeholder="min price">
+    <input type="number" id="max-price" placeholder="max price">
+    <button id="apply-filter">applyfilter</button>
+    </div>
+    <div id="men">
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/28901325/kjega_512.webp">
+        <p>banarasi silk saree | new saree | silk | saree | </p>
+            <h2 class="price">₹700</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/415867167/p6p60_512.webp">
+            <p>Indian Women's Daimond Work Soft Chiffon Black Saree</p>
+          <h2 class="price">₹1611</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/430196600/of0rv_512.webp">
+            <p>Indian Women's Daimond Work Soft Chiffon Black Saree</p>
+            <h2 class="price">₹910</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/325719084/rzzh7_512.webp">
+            <p>Woven Kanjivaram Jacquard, Pure Silk Saree</p>
+            <h2 class="price">₹863</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/352294770/x1r11_512.webp">
+            <p>SILVER BUTTA </p>
+            <h2 class="price">₹550</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/371419024/3yfun_512.webp">
+            <p>Kanooda Prints Fancy Mysore Art silk Printed Saree Ethnic Flower Pattern</p>
+            <h2 class="price">₹650</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/124156896/eeu0q_512.webp">
+             <p>Aakarsha Fashionable Sarees
+            </p>
+            <h2 class="price">₹500</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/100332295/cctqu_512.webp">
+            <p>WOMEN’S KHADI COTTON SAREE WITH BLOUSE PIECE</p>
+            <h2 class="price">₹400</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/220617854/ix8lr_512.webp">
+            <p>Saree for Women, Sari, Jamdani Dhakai Designer Cotton Silk Jaquared Saree For Women Without Blouse</p>
+            <h2 class="price">₹600</h2>
+        </div>
+    </div>
+    <script>
+        const men = document.querySelectorAll('.box');
+        document.getElementById('apply-filter').addEventListener('click',applyFilter);
+        
+        function applyFilter() {
+            const minPrice = parseInt(document.getElementById('min-price').value);
+            const maxPrice = parseInt(document.getElementById('max-price').value);
+        
+
+     
+        men.forEach((box) =>{
+            const price = parseInt(box.querySelector('.price').textContent.replace('₹',''));
+            if (price >= minPrice && price <= maxPrice){
+            box.style.display = 'block';  
+            } 
+        
+        else{
+            box.style.display ='none';
+
+        }
+    
+          });
+        }
+    </script>
+    
+    
+</body>
+</html>

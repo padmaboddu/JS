@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #men{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+          .box{
+            width: 300px;
+            height: 570px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .box img{
+          height: 400px;
+          width:300px;
+          transition: 200ms;
+        }
+        .box:hover img{
+            transform: scale(1.02);
+        }
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <input type="number" id="min-price" placeholder="min price">
+    <input type="number" id="max-price" placeholder="max price">
+    <button id="apply-filter">applyfilter</button>
+    </div>
+    <div id="men">
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/296301173/e02a8_512.webp">
+         <p>202 Dhoti</p>
+            <h2 class="price">₹300 </h1>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/424985486/vfysb_512.webp">
+            <p>Sherwanis</p>
+            <h1>₹250</h1>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/298302269/krwgv_512.webp">
+            <p>Boys Festive & Party Sherwani and Churidar Set (Blue Pack of 1)</p>
+            <h2 class="price">₹450</h1>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/314869099/hyqxw_512.webp">
+            <p>Trendy Boys Sherwani</p>
+            <h2 class="price">₹400</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/382006507/v6dmd_512.webp">
+            <p>BOYS SHERWANI</p>
+            <h2 class="price">₹400</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/209499598/mczb5_512.webp">
+            <p>Green Golden Sherwani set</p>
+            <h2>₹500</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/156852627/3fnht_512.webp">
+             <p>B BRIGHT GARMENTS KIDS DUPION SILK INDO WESTERN RED DHOTI SHERWANI</p>
+            <h2 class="price">₹500</h2>
+        </div>
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/418372440/by2ol_512.webp">
+            <p>Hasibul fashion,sherwani,kurta set,boys dresses</p>
+            <h2 class="price">₹280</h2>
+        </div>
+
+        <div class="box">
+            <img src="https://images.meesho.com/images/products/431053044/psgil_512.webp">
+            <p>Kids Ethnic Treandy Sherwani Set</p>
+            <h2 class="price">₹300</h2>
+        </div>
+    </div>
+    <script>
+        const men = document.querySelectorAll('.box');
+        document.getElementById('apply-filter').addEventListener('click',applyFilter);
+        
+        function applyFilter() {
+            const minPrice = parseInt(document.getElementById('min-price').value);
+            const maxPrice = parseInt(document.getElementById('max-price').value);
+        
+
+     
+        men.forEach((box) =>{
+            const price = parseInt(box.querySelector('.price').textContent.replace('₹',''));
+            if (price >= minPrice && price <= maxPrice){
+            box.style.display = 'block';  
+            } 
+        
+        else{
+            box.style.display ='none';
+
+        }
+    
+          });
+        }
+    </script>
+    
+</body>
+</html>

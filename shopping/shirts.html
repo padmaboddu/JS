@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #men{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+          .box{
+            width: 300px;
+            height: 570px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .box img{
+          height: 400px;
+          width:300px;
+          transition: 200ms;
+        }
+        .box:hover img{
+            transform: scale(1.02);
+        }
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <input type="number" id="min-price" placeholder="min price">
+    <input type="number" id="max-price" placeholder="max price">
+    <button id="apply-filter">applyfilter</button>
+    </div>
+    <div id="men">
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240312/TLIF/65f0404216fd2c6e6a521ae3/-473Wx593H-467160486-blue-MODEL.png">
+             <h1>DEAIM</h1>
+             <p>Men Striped Regular Fit Shirt<p>
+                <h2 class="price">₹499</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230808/9x9d/64d2474aeebac147fcb45b0a/-473Wx593H-466434087-white-MODEL.jpg">
+            <h1>WOXEN</h1>
+            <p>Spread Collared Checked Shirt</p>
+            <h2 class="price">₹368 </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20231121/C6c3/655cdbefafa4cf41f596bcc7/-473Wx593H-466817674-seagreen-MODEL.jpg">
+            <h1>WUXI</h1>
+            <p>Men Knitted Loose Fit Shirt with Mandarin Collar</p>
+            <h2 class="price">₹456</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20231229/xoWG/658ef3c5ddf7791519f63a80/-473Wx593H-466379752-maroon-MODEL.jpg">
+            <h1>VERTUSY</h1>
+            <p>Men Regular Fit Shirt with Patch Pocket</p>
+            <h2 class="price">₹600 </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240627/WF8e/667cfa466f60443f31c118bc/-473Wx593H-700132335-navy-MODEL.jpg">
+            <h1>JANKIT DESIGNER</h1>
+            <p>Men Printed Regular Fit Shirt with Spread Collar</p>
+            <h2 class="price">₹400 </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240131/exFh/65b94e4f16fd2c6e6acb059c/-473Wx593H-467023010-blue-MODEL.jpg">
+            <h1>CELIO</h1>
+            <p>Men Regular Fit Shirt with Cutaway Collar</p>
+            <h2 class="price">₹2639</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240717/hKmD/6696cfb31d763220fac97f29/-473Wx593H-463775643-blue-MODEL.jpg">
+            <h1>CAMPUS SUTRA</h1>
+            <p>Checked Shirt with Patch Pocket</p>
+            <h2 class="price">₹630 </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240719/mk5Q/669aa1161d763220fa09d1ef/-473Wx593H-467125560-teal-MODEL2.jpg">
+            <h1>GESPO</h1>
+            <p>Men Regular Fit Shirt with Spread Collar</p>
+            <h2 class="price">₹450</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240425/n8L3/662a5ce605ac7d77bb2adb26/-473Wx593H-467278476-black-MODEL.jpg">
+            <h1>BOMBAY BEGUM</h1>
+            <p>Men Regular Fit Shirt with Cutaway Collar</p>
+            <h2 class="price">₹420</h2>
+        </div>
+    </div>
+    <script>
+        const men = document.querySelectorAll('.box');
+        document.getElementById('apply-filter').addEventListener('click',applyFilter);
+        
+        function applyFilter() {
+            const minPrice = parseInt(document.getElementById('min-price').value);
+            const maxPrice = parseInt(document.getElementById('max-price').value);
+        
+
+     
+        men.forEach((box) =>{
+            const price = parseInt(box.querySelector('.price').textContent.replace('₹',''));
+            if (price >= minPrice && price <= maxPrice){
+            box.style.display = 'block';  
+            } 
+        
+        else{
+            box.style.display ='none';
+
+        }
+    
+          });
+        }
+    </script>
+    
+    
+</body>
+</html>

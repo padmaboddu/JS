@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #men{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+          .box{
+            width: 300px;
+            height: 630px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid burlywood;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .box img{
+          height: 400px;
+          width:300px;
+          transition: 200ms;
+        }
+        .box:hover img{
+            transform: scale(1.02);
+        }
+    
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <input type="number" id="min-price" placeholder="min price">
+    <input type="number" id="max-price" placeholder="max price">
+    <button id="apply-filter">applyfilter</button>
+    </div>
+    <div id="men">
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240202/gHYR/65bd083e16fd2c6e6ad476d8/-473Wx593H-467037172-multi-MODEL.jpg">
+            <h1> MANSI CREATION</h1>
+           <p>Embroidered 3-Piece Unstitched Dress Material</p>
+             <h2 class="price">₹1,080</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240523/hfap/664f467005ac7d77bb733e33/-473Wx593H-700004890-green-MODEL.jpg">
+            <h1>ZEELPIN </h1>
+            <p>Women Embroidered 3-Piece Semi-Stitched Anarkali Dress Material</p>
+            <h2 class="price">₹2151</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240719/g92O/669986661d763220faf6eee8/-473Wx593H-700174798-grey-MODEL.jpg">
+            <h1>MBZ.IN BY MEENA BAZAAR</h1>
+            <p>Women Embroidered Unstitched Dress Material</p>
+            <h2 class="price">₹1,678</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240312/6JBn/65ef84f405ac7d77bbab2164/-473Wx593H-467157497-bronze-MODEL.jpg">
+            <h1>MIMI DESIGN</h1>
+            <p>Embroidered 3-Piece Unstitched Dress Material</p>
+            <h2 class="price">₹840</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230619/nEAZ/64905d7142f9e729d74d2c48/-473Wx593H-466287727-blue-MODEL.jpg">
+            <h1>SATRANI  </h1>
+            <p> Printed Unstitched Dress Material</p>
+            <h2 class="price">₹379 </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230717/uBLC/64b558d6eebac147fc732ebd/-473Wx593H-466364299-blue-MODEL.jpg">
+            <h1>LEELI PEERI DESIGNER</h1>
+            <p>Embroidered 3-Piece Unstitched Dress Material</p>
+            <h2 class="price">₹672</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230819/QO4E/64e042faddf7791519544295/-473Wx593H-466471362-blue-MODEL.jpg">
+            <h1>ZEEPKART</h1>
+             <p>Embroidered Unstitched Dress Material with Dupatta Set</p>
+            <h2 class="price">₹952</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240514/XA7g/6643948b16fd2c6e6a063709/-473Wx593H-467332258-blue-MODEL.jpg">
+            <h1>PEACHMODE </h1>
+            <p>Women Printed 3-Piece Unstitched Dress Material</p>
+            <h2 class="price">₹612</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230520/6GXN/6467ce05d55b7d0c63ca5e7b/-473Wx593H-465471146-pink-MODEL.jpg">
+            <h1>ETHNIC JUNCTION</h1>
+            <p>Embroidered 3-Piece Unstitched Dress Material</p>
+            <h2 class="price">₹639</h2>
+        </div>
+    </div>
+    <script>
+        const men = document.querySelectorAll('.box');
+        document.getElementById('apply-filter').addEventListener('click',applyFilter);
+        
+        function applyFilter() {
+            const minPrice = parseInt(document.getElementById('min-price').value);
+            const maxPrice = parseInt(document.getElementById('max-price').value);
+        
+
+     
+        men.forEach((box) =>{
+            const price = parseInt(box.querySelector('.price').textContent.replace('₹',''));
+            if (price >= minPrice && price <= maxPrice){
+            box.style.display = 'block';  
+            } 
+        
+        else{
+            box.style.display ='none';
+
+        }
+    
+          });
+        }
+    </script>
+    
+</body>
+</html>

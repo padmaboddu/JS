@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #men{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+          .box{
+            width: 300px;
+            height: 570px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .box img{
+          height: 400px;
+          width:300px;
+          transition: 200ms;
+        }
+        .box:hover img{
+            transform: scale(1.02);
+        }
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <input type="number" id="min-price" placeholder="min price">
+    <input type="number" id="max-price" placeholder="max price">
+    <button id="apply-filter">applyfilter</button>
+    </div>
+    <div id="men">
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20231012/kxtM/6527eb7fafa4cf41f53e495a/-473Wx593H-469553292-blue-MODEL.jpg">
+            <h1>AMERICAN EAGLE
+            </h1>
+        <p>Women Lightly Washed Skinny fit Jeans</p>
+            <h2 class="price">₹3219</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230328/WtJk/642312da711cf97ba7f6f570/-473Wx593H-469463869-darkblue-MODEL.jpg">
+            <h1>U.S. POLO ASSN.</h1>
+            <p>Lightly Washed Skinny Fit Jean</p>
+            <h2 class="price">₹1611</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230127/pdCH/63d3ef7eaeb269c651fe901d/-473Wx593H-469271223-darkused-MODEL2.jpg">
+            <h1>PEPE JEANS</h1>
+            <p>Lightly Washed Skinny Fit Jeans</p>
+            <h2 class="price">₹910</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240710/9B3X/668e01ce1d763220fa472cd7/-473Wx593H-700180003-blue-MODEL.jpg">
+            <h1>LINOGES </h1>
+            <p>Women High-Rise Wide Jeans</p>
+            <h2 class="price">₹863</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240507/YQns/663a68c916fd2c6e6af1c4a7/-473Wx593H-467311693-blue-MODEL3.jpg">
+            <h1>LINOGES</h1>
+            <p>Women High Rise Wide Jeans</p>
+            <h2 class="price">₹857</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240705/ZO5M/6687d2b21d763220faf23d2b/-473Wx593H-700091172-black-MODEL.jpg">
+            <h1>LINOGES</h1>
+            <p>Women High-Rise Relaxed Jeans</p>
+            <h2 class="price">₹850</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240718/OZLh/6698e5a31d763220fae8f005/-473Wx593H-465511684-blue-MODEL.jpg">
+            <h1>ORCHID BLUES </h1>
+            <p>Lightly Washed High-Rise Straight Jean</p>
+            <h2 class="price">₹494</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230220/zhv8/63f3ac56f997dde6f4b567d0/-473Wx593H-441143840-darkblue-MODEL.jpg">
+            <h1>DNMX</h1>
+            <p>Women Mid-Rise Relaxed Fit Jeans</p>
+            <h2 class="price">₹699</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230404/2sCv/642c4226907deb497ac918b0/-473Wx593H-469311871-mediumblue-MODEL3.jpg">
+            <h1>BUDA JEANS CO</h1>
+            <p>Lightweight Jeans with Pockets</p>
+            <h2 class="price">₹840 </h2>
+        </div>
+    </div>
+    <script>
+        const men = document.querySelectorAll('.box');
+        document.getElementById('apply-filter').addEventListener('click',applyFilter);
+        
+        function applyFilter() {
+            const minPrice = parseInt(document.getElementById('min-price').value);
+            const maxPrice = parseInt(document.getElementById('max-price').value);
+        
+
+     
+        men.forEach((box) =>{
+            const price = parseInt(box.querySelector('.price').textContent.replace('₹',''));
+            if (price >= minPrice && price <= maxPrice){
+            box.style.display = 'block';  
+            } 
+        
+        else{
+            box.style.display ='none';
+
+        }
+    
+          });
+        }
+    </script>
+    
+</body>
+</html>

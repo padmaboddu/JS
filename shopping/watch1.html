@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #men{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+          .box{
+            width: 300px;
+            height: 600px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .box img{
+          height: 400px;
+          width:300px;
+          transition: 200ms;
+        }
+        .box:hover img{
+            transform: scale(1.02);
+        }
+    
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <input type="number" id="min-price" placeholder="min price">
+    <input type="number" id="max-price" placeholder="max price">
+    <button id="apply-filter">applyfilter</button>
+    </div>
+    <div id="men">
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20231201/i0yf/6568e858afa4cf41f5ac896a/-473Wx593H-466841760-silver-MODEL.jpg">
+            <h1>LIMESTONE</h1>
+        <p>OTUS0002 Round Dial Analogue Watch</p>
+            <h2 class="price">₹475</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20231016/kDeC/652d63b1ddf77915194252b6/-473Wx593H-466713091-teal-MODEL2.jpg">
+            <h1>FCUK</h1>
+            <p>FCSW06-A Men Smart Watch with Tang Buckle </p>
+            <h2 class="price">₹1,050</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240331/sRMV/6608f7ce05ac7d77bbe5c26f/-473Wx593H-467106536-black-MODEL.jpg">
+            <h1>FRANK TIME </h1>
+            <p>Men Stainless Steel Analogue Watch-FT-0036 BLK  </p>
+            <h2 class="price">₹860 </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20231225/uGsB/6589a2e6ddf7791519e7a1dc/-473Wx593H-464951519-black-MODEL.jpg">
+            <h1>LORENZ </h1>
+            <p>Analogue Round Shaped Watch </p>
+            <h2 class="price">₹420 </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20231201/f8QZ/6569e1e3ddf7791519aaee33/-473Wx593H-466843749-black-MODEL.jpg">
+            <h1>LIMESTONE</h1>
+            <p>Men Analogue Watch - LS3050 </p>
+            <h2 class="price">₹820</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20221227/Ix8Q/63ab0a55aeb269659c0fa9cc/-473Wx593H-465507118-silver-MODEL.jpg">
+            <h1>GUESS</h1>
+            <p>GW0277G1 Water-Resistant Analogue Watch</p>
+            <h2 class="price">₹8,397</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20210504/0wHp/60916f02aeb269a9e3b14f9a/-473Wx593H-460901214-black-MODEL.jpg">
+            <h1>CASIO </h1>
+             <p>GA-140-1A1DR Black Analog-Digital Dial Black Resin Strap Men's Watch G975</p>
+            <h2 class="price">₹8,995</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240205/pyB9/65c0f97616fd2c6e6ada9e2a/-473Wx593H-466985227-black-MODEL.jpg">
+            <h1>FASTRACK  </h1>
+            <p>Men NP3169NM01 Loopholes Black Dial Stainless Steel Strap Watch </p>
+            <h2 class="price">₹4,477</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20231128/dDum/6565acb5afa4cf41f5a5417f/-473Wx593H-469456973-black-MODEL.jpg">
+            <h1>UNIQUEST </h1>
+            <p>Black Dial Analogue Fashion Watch with Multi-Dial Function And Leather Strap For Men</p>
+            <h2 class="price">₹6,899</h2>
+        </div>
+    </div>
+    <script>
+        const men = document.querySelectorAll('.box');
+        document.getElementById('apply-filter').addEventListener('click',applyFilter);
+        
+        function applyFilter() {
+            const minPrice = parseInt(document.getElementById('min-price').value);
+            const maxPrice = parseInt(document.getElementById('max-price').value);
+        
+
+     
+        men.forEach((box) =>{
+            const price = parseInt(box.querySelector('.price').textContent.replace('₹',''));
+            if (price >= minPrice && price <= maxPrice){
+            box.style.display = 'block';  
+            } 
+        
+        else{
+            box.style.display ='none';
+
+        }
+    
+          });
+        }
+    </script>
+    
+    
+</body>
+</html>

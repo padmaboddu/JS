@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #men{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+          .box{
+            width: 300px;
+            height: 600px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .box img{
+          height: 400px;
+          width:300px;
+          transition: 200ms;
+        }
+        .box:hover img{
+            transform: scale(1.02);
+        }
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <input type="number" id="min-price" placeholder="min price">
+    <input type="number" id="max-price" placeholder="max price">
+    <button id="apply-filter">applyfilter</button>
+    </div>
+    <div id="men">
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240502/ihEo/6633961c05ac7d77bb38da0f/-473Wx593H-467295264-black-MODEL.jpg">
+            <h1>VIDA LOCA </h1>
+        <p>Men Slim Fit Short Kurta</p>
+             <h2 class="price">₹500</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230612/UCI0/64871e79d55b7d0c636010cd/-473Wx593H-466261144-white-MODEL.jpg">
+            <h1>BLUE BUDDHA</h1>
+            <p>Mandarin Collar Short Kurta</p>
+            <h2 class="price">₹899</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230811/7seB/64d63c09a9b42d15c9a554ec/-473Wx593H-466449395-grey-MODEL.jpg">
+            <h1>JOMPERS</h1>
+            <p>Embroidered Slim Fit Long Kurta</p>
+            <h2 class="price">₹1,040</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230703/WiAi/64a2f9faeebac147fc48f9f4/-473Wx593H-466328571-blue-MODEL.jpg">
+            <h1>KUONS AVENUE</h1>
+            <p>Denim Short Kurta with Welt Pocket</p>
+            <h2 class="price">₹1,232</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230624/LySu/64969af0a9b42d15c9e37666/-473Wx593H-465461612-black-MODEL.jpg">
+            <h1>EVEN </h1>
+            <p>Self-Design Kurta with Asymmetrical Cut</p>
+            <h2 class="price">₹698 </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240405/e4OR/660fd52216fd2c6e6a9f6e6a/-473Wx593H-466932068-purple-MODEL.jpg">
+            <h1>SHASAK</h1>
+            <p>Men Chevron Embroidered Regular Fit Long Kurta</p>
+            <h2 class="price">₹2,652</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240510/PJwM/663df58416fd2c6e6afa8904/-473Wx593H-467309111-maroon-MODEL.jpg">
+            <h1>MAX</h1>
+             <p>Men Printed Regular Fit Short Kurta </p>
+            <h2 class="price">₹899</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240424/QlnI/6629343016fd2c6e6ace6b5c/-473Wx593H-467276787-pink-MODEL2.jpg">
+            <h1>KISAH</h1>
+            <p>Men Patterned Regular Fit Sherwani</p>
+            <h2 class="price">₹4,477</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240223/rwp1/65d7f33b16fd2c6e6a16ebd3/-473Wx593H-467099572-grey-MODEL.jpg">
+            <h1>KISAH</h1>
+            <p>Men Embroidered Regular Fit Long Kurta</p>
+            <h2 class="price">₹860</h2>
+        </div>
+    </div>
+    <script>
+        const men = document.querySelectorAll('.box');
+        document.getElementById('apply-filter').addEventListener('click',applyFilter);
+        
+        function applyFilter() {
+            const minPrice = parseInt(document.getElementById('min-price').value);
+            const maxPrice = parseInt(document.getElementById('max-price').value);
+        
+
+     
+        men.forEach((box) =>{
+            const price = parseInt(box.querySelector('.price').textContent.replace('₹',''));
+            if (price >= minPrice && price <= maxPrice){
+            box.style.display = 'block';  
+            } 
+        
+        else{
+            box.style.display ='none';
+
+        }
+    
+          });
+        }
+    </script>
+    
+    
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #men{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+          .box{
+            width: 300px;
+            height: 600px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .box img{
+          height: 400px;
+          width:300px;
+          transition: 200ms;
+        }
+        .box:hover img{
+            transform: scale(1.02);
+        }
+        input{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 30px;
+            border-radius: 50px; 
+        }.container{
+            text-align: center;
+            border-radius: 1px solid burlywood;
+        }
+        button{
+            padding-left: 20px;
+            border: 1px solid burlywood;
+            height: 20px;
+            border-radius: 50px; 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <input type="number" id="min-price" placeholder="min price">
+    <input type="number" id="max-price" placeholder="max price">
+    <button id="apply-filter">applyfilter</button>
+    </div>
+    <div id="men">
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20210128/KK9X/6011b97baeb269698157f08e/-473Wx593H-460812866-black-MODEL.jpg">
+            <h1>CASIO </h1>
+           <p> A158WA-1DF Black Digital Dial Silver Stainless Steel Band D011</p>
+            <h2 class="price">₹1695</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20231227/EjjR/658c3c6dafa4cf41f5ef91e0/-473Wx593H-469456961-pink-MODEL.jpg">
+            <h1> UNIQUEST</h1>
+            <p>Women Water-Resistant Analogue Watch - UQW-37</p>
+            <h2 class="price">₹4699</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240529/ALw3/6656e5de05ac7d77bb8a1e44/-473Wx593H-4934043490-multi-MODEL.jpg">
+            <h1> TITAN</h1>
+            <p>Women Karishma Analogue Watch - NS2679NM01 </p>
+            <h2 class="price">₹2759 </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240529/gYGP/6656ecd505ac7d77bb8a49d0/-473Wx593H-4934043620-multi-MODEL.jpg">
+            <h1>TITAN</h1>
+            <p>Women Raga Viva V Analogue Watch - NS2669SM01</p>
+            <h2 class="price">₹5,530</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240529/DhC7/6656835816fd2c6e6a33d257/-473Wx593H-700021292-brown-MODEL.jpg">
+            <h1>CRESTELLO</h1>
+            <p>Women Analogue Watch with Metal Strap-CR-JWL151-BRWN </p>
+            <h2 class="price">₹460</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20230606/MZ02/647f18e2d55b7d0c63514b0a/-473Wx593H-469112760-rosegold-MODEL.jpg">
+            <h1>CARLINGTON</h1>
+            <p>Women Mova Analogue Watch with Stainless Steel Strap</p>
+            <h2 class="price">₹600</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240529/yNtt/6656d03716fd2c6e6a3564e7/-473Wx593H-4934053150-multi-MODEL2.jpg">
+            <h1>FASTRACK</h1>
+             <p>Women Economy Analogue Watch - NS6015SM02 </p>
+            <h2 class="price">₹1,827 </h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240319/CAa8/65f9bca705ac7d77bbc91a7e/-473Wx593H-467184148-silver-MODEL.jpg">
+            <h1> LOUIS DEVIN</h1>
+            <p>LD-JWL174-PNK Analogue Watch with Stainless Steel Strap</p>
+            <h2 class="price">480</h2>
+        </div>
+        <div class="box">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20221013/FSAX/63470ed0f997ddfdbd2568fe/-473Wx593H-460665509-gunmetal-MODEL.jpg">
+            <h1>GIORDANO</h1>
+            <p>C2204-44 Analogue Watch with Metal Strap </p>
+            <h2 class="price">₹2,499</h2>
+        </div>
+    </div>
+    <script>
+        const men = document.querySelectorAll('.box');
+        document.getElementById('apply-filter').addEventListener('click',applyFilter);
+        
+        function applyFilter() {
+            const minPrice = parseInt(document.getElementById('min-price').value);
+            const maxPrice = parseInt(document.getElementById('max-price').value);
+        
+
+     
+        men.forEach((box) =>{
+            const price = parseInt(box.querySelector('.price').textContent.replace('₹',''));
+            if (price >= minPrice && price <= maxPrice){
+            box.style.display = 'block';  
+            } 
+        
+        else{
+            box.style.display ='none';
+
+        }
+    
+          });
+        }
+    </script>
+    
+    
+</body>
+</html>
