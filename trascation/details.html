@@ -9,166 +9,159 @@
     <title>Document</title>
 </head>
 <style>
-    #block{
-        padding-left: 250px;
-    }
-    h1{
-        text-transform: uppercase;
-        text-align: center;
-          height: 50px;
-          padding-top: 10px;
-          font-weight: 800;
-          font-size: 50px;
-        color: rgb(68, 68, 118);
-        margin:50px ; 
-        text-align: center;
-        
-         
-         
-    }
+    body {
+            background-color: #f0e6e6; 
+            color: white; 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+        }
 
-    p{
-        text-align: center;
-        padding-top: 30px;
-        margin-top: 30px;
-        color: white;
-    }
-    h3{
-        text-transform: uppercase;
-        text-decoration: underline;
-        color: white;
-        text-align: center;
-    }
-    input{
-        text-align: center;
-        justify-content: center;
-        border:2px burlywood;
-        border-radius: 30px;
-        width: 170px;
-        height: 40px;
-        margin-top: 20px;
-        color:black;
-       
-    }
-    button{
-        text-align: center;
-        border:2px burlywood;
-        color:black;
-        margin-top: 20px;
-        width: 100px;
-        height: 30px;
-        margin:20px;
-        background-color: white;
-        
-       
-    }.one{
-       
-        text-align: center;
-    }
-       
-    .head{
-        border: 1px solid;
-        border-color: burlywood;
-        border-radius: 50px;
-        width: 800px;
+        h1 {
+            text-transform: uppercase;
+            font-weight: 800;
+            font-size: 50px;
+            color: rgb(7, 7, 241);
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        h3 {
+            text-transform: uppercase;
+            text-decoration: underline;
+            color: white;
+        }
+
+        #block {
+            display: flex;
+            justify-content: center; 
+            padding: 20px; 
+            width: 100%; 
+            max-width: 800px; 
+        }
+
+        .head {
+            border: 1px solid burlywood;
+            border-radius: 50px;
+            background: linear-gradient(45deg, #92b4c9, #426497, rgb(155, 203, 233));
+            padding: 20px;
+            width: 100%; 
+            transition: 200ms;
+            text-align: center; 
+        }
+
+        input {
+            text-align: center;
+            border: 2px solid burlywood;
+            border-radius: 30px;
+            width: 100%;
+            max-width: 170px; 
+            height: 40px;
+            margin-top: 20px;
+            color: black;
+        }
+
+        button {
+            text-align: center;
+            border: 2px solid burlywood;
+            color: black;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 100px; 
+            height: 30px;
+            background-color: white;
+            cursor: pointer;
+            border-radius: 5px; 
+        }
+
+        button:hover {
+            background-color: burlywood;
+        }
+
+        .cd {
+            display: flex;
+            justify-content: center; 
+            margin-top: 20px; 
+        }
+
+        .cd button {
+            margin: 0 10px; 
+            width: 80px; 
+        }
+
       
-   
-      align-content: center; 
-    
-      background: linear-gradient(45deg, #92b4c9, #426497, rgb(155, 203, 233));
-        
-    }.head{
-transition: 200ms;
-text-align: center;
-    }
-    
-    
-    h4{
-        border: 2px solid;
-        text-decoration: none;
-        text-align: center;
-    } 
-  
-    h2{
-        color: white;
-        text-align: center;
-    }
-    .cd{
-        text-align: center;
-       
-    }.cd button{
-        width: 150px;
-        border-radius: 50px;
-        border: 1px solid burlywood;
-}.text{
-    text-align: center;
-}
-#block{
-    align-items: center;
-    text-align: center;
-}
-</style>
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 30px;
+            }
+
+            input, button {
+                max-width: 100%; 
+            }
+           
+        }
+    </style>
+</head>
 <body>
-    <a href="dashboard.html"> <button><i class="fa-solid fa-house"></i>home    </button></a>
-   
+    <a href="dashboard.html"><button><i class="fa-solid fa-house"></i> Home</button></a>
+    <h1>Account Details</h1>
 
-   
-   
-        <h1>account details</h1>
-
-
-        <div id="block">
+    <div id="block">
         <div class="head">
-          
-              <div class="one">
-             
-                <h3>account information</h3>
-                <h2>ACCOUNT HOLDER :Padma.Boddu</h2>
-             <h2>ACCOUNT NUMBER : 75936981</h2>
-             <h2>ACCOUNT TYPE : SAVINGS</h2>
-          <h2>BALANCE:<span id="balance">100000</span></h2>
-          <input type = "number" id="amount" placeholder="enteramount"></br>
-          <button id="credit-button">credit money</button>&nbsp;
-          <button id="debit-button">debit money</button>
-
-        
-            
-        <div class="cd">
-
-        <a href="credit.html"><button id="credit-button">credit</button></a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
-<a href="debit.html"><button id="debit-button">debit</button></a> </div> 
-</div>   
-    </div>
+            <h3>Account Information</h3>
+            <h2>Account Holder: Padma Boddu</h2>
+            <h2>Account Number: 75936981</h2>
+            <h2>Account Type: Savings</h2>
+            <h2>Balance: <span id="balance">100000</span></h2>
+            <input type="number" id="amount" placeholder="Enter Amount" />
+            <div>
+                <button id="credit-button">Credit Money</button>
+                <button id="debit-button">Debit Money</button>
+            </div>
+            <div class="cd">
+                <a href="credit.html"><button>Credit</button></a>
+                <a href="debit.html"><button>Debit</button></a>
+            </div> 
+        </div>   
     </div>
 
     <script>
         const balanceElement = document.getElementById('balance');
-        const amountinput = document.getElementById('amount');
+        const amountInput = document.getElementById('amount');
         const creditButton = document.getElementById('credit-button');
         const debitButton = document.getElementById('debit-button');
 
         let balance = 100000;
-         
-        creditButton.addEventListener('click',() =>{
-           const amount = parseInt(amountinput.value);
-            balance += amount ;
-            balanceElement.innerText=balance;
-            amountinput.value = ''
-        })
 
+        creditButton.addEventListener('click', () => {
+            const amount = parseInt(amountInput.value);
+            if (isNaN(amount) || amount <= 0) {
+                alert("Please enter a valid amount.");
+                return;
+            }
+            balance += amount;
+            balanceElement.innerText = balance;
+            amountInput.value = '';
+        });
 
-        debitButton.addEventListener('click',() =>{
-           const amount = parseInt(amountinput.value);
-           if(amount > balance) {
-            alet("insufficient balance")
-           }else{
-            balance -= amount;
-              balanceElement.innerText=balance;
-            amountinput.value = ''
-           }
-           
-          
-        })
+        debitButton.addEventListener('click', () => {
+            const amount = parseInt(amountInput.value);
+            if (isNaN(amount) || amount <= 0) {
+                alert("Please enter a valid amount.");
+                return;
+            }
+            if (amount > balance) {
+                alert("Insufficient balance.");
+            } else {
+                balance -= amount;
+                balanceElement.innerText = balance;
+                amountInput.value = '';
+            }
+        });
+
     </script>
 </body>
 </html>
