@@ -6,126 +6,134 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
     <style>
-        .main{
+       * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .main {
             background-image: url('https://th.bing.com/th/id/R.5d23f1aa9eacb4ada05fbc7d85500cf9?rik=%2fGiVoQBiGfB3Qg&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f03%2fDark-Blue-Background-free-desktop.jpg&ehk=sB4zu%2b2tPgu7wDGVoGY%2bs1Lc5CPICdV1eKWh7sMzI7I%3d&risl=&pid=ImgRaw&r=0');
             background-repeat: no-repeat;
             background-size: cover;
-         
-            height: 900px;
-         
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; 
         }
-        .dashboard{
+
+        .name {
+            color: #74C0FC;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .dashboard {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-        
+            max-width: 1200px;
+            width: 100%;
+            margin: 20px; 
         }
-        .block{
-            width: 350px;
-            height: 200px;
-            margin: 20px;
-            padding: 5px;
-            border: 5px solid;
+
+        .block {
+            flex: 1 1 300px; 
+            margin: 15px; 
+            padding: 20px; 
+            border: 5px solid #74C0FC; 
             border-radius: 50px;
-
+            transition: transform 0.2s;
+            max-width: 350px; 
+            background: rgba(255, 255, 255, 0.1); 
         }
-        .credit{
-           
+
+        .block:hover {
+            transform: scale(1.05);
+        }
+
+        .credit, .debit, .details {
             text-align: center;
-            padding-top: 30px;
             color: #74C0FC;
             font-size: large;
-           
+            height: 220px;
         }
-        .debit{
-            text-align: center;
-            padding-top: 30px;
-            color:#74C0FC;
-            font-size: large;
-           
-        }
-        .details{
-          
-            text-align: center;
-            padding-top: 30px;
-            color:#74C0FC;
-            font-size: large;
-           
-        }
-        
-        .fa-solid{
-            padding-bottom: 20px;
-        }
-        .name{
-            color: #74C0FC;
-            text-align: center;
-            padding-top: 200px;
 
-        }
-        button{
+        button {
             width: 50px;
             border: 2px solid #74C0FC;
             border-radius: 10px;
+            background-color: transparent;
+            color: #74C0FC;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
         }
-        .block:hover{
-            transform: translate(5);
+
+        button:hover {
+            background-color: #74C0FC;
+            color: white;
         }
-        
-       
-      
-        
+
+        @media (max-width: 768px) {
+            .block {
+                flex: 1 1 90%;
+            }
+
+            .name {
+                padding: 10px 0; 
+            }
+        }
+
+        @media (max-width: 480px) {
+            button {
+                width: 40px; 
+            }
+
+            .block {
+                padding: 15px; 
+            }
+        }
     </style>
   
 </head>
 </body>
 
-<a href="../index.html" ><i class="fa-solid fa-arrow-left fa-2xl" style="color: #74C0FC;"></i> </a>
-<div class="main">
-    <div class="name">
-        <h2>DASHBOARD</h2>
-
-    
-    
-
-   
-   
-    <div class="dashboard">
-        <div class="block details">
-            <h1> ACCOUNT 
-                DETAILS</h1>
-                <a href="details.html"> <button>click</button></a></button>
+ <a href="../index.html" ><i class="fa-solid fa-arrow-left fa-2xl" style="color: #74C0FC;"></i> </a>
+    <div class="main">
+        <div class="name">
+            <h2>DASHBOARD</h2>
         </div>
-        <div class="block credit"></a>
-            <h1>CREDIT
-            CARD</h1></a>
-            <a href="credit.html"><button>click</button></a>
-        </div>
-        <div class="block debit">
-            <h1>DEBIT
-            CARD</h1>
-            <a href="debit.html"><button>click</button></a>
-        </div>
-      
-      
-           
+        <div class="dashboard">
+            <div class="block details">
+                <h1>ACCOUNT DETAILS</h1>
+                <a href="details.html"><button aria-label="View account details">Click</button></a>
+            </div>
+            <div class="block credit">
+                <h1>CREDIT CARD</h1>
+                <a href="credit.html"><button aria-label="View credit card">Click</button></a>
+            </div>
+            <div class="block debit">
+                <h1>DEBIT CARD</h1>
+                <a href="debit.html"><button aria-label="View debit card">Click</button></a>
+            </div>
         </div>
     </div>
-    </div>
-
     </html>
-    <script>
-       
-        var pin = prompt("enter your4-digit pin.");
-        if(pin.length===4){
-            alert("success");
-
+   <script>
+        function validatePIN() {
+            var pin = prompt("Enter your 4-digit PIN:");
+            if (/^\d{4}$/.test(pin)) {
+                alert("Success");
+            } else {
+                alert("Invalid PIN. Please enter 4 digits.");
+            }
         }
-        else{
-            alert("invalid pin.please enter 4 digits.");
-        }
-
-
-
+        validatePIN();
     </script>
 
    
