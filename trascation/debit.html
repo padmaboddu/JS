@@ -12,106 +12,94 @@
     <title>Document</title>
 </head>
 <style>
-    .main{
-            background-image: url('https://img.freepik.com/premium-photo/abstract-background-images-wallpaper-ai-generated_643360-118537.jpg');
+    .main {
             background-repeat: no-repeat;
             background-size: cover;
-         
-            height: 800px;
-         
+            min-height: 100vh; /* Full height */
+            display: flex;
+            align-items: center; /* Center content vertically */
+            justify-content: center; /* Center content horizontally */
+            padding: 20px; /* Padding for mobile devices */
         }
-    .dash{
-        padding-top: 100px;
-        padding-left: 350px;
-        color: aqua;
-     
-       
-    }
-    .block{
-        text-align: center;
-        border: 5px solid;
-        height: 300px;
-        width: 550px;
-        padding-left: 15px;
-        padding-top: 20px;
-        padding-right: 10px;
-        border-radius: 50px;   
-    }
-    .button{
-        padding-left: 20px;
-        padding-top: 20px;
-    }
-    .block button{
-        border:3px solid;
-        border-radius: 10px;
-    }
-  
-   
-  
-   
-</style>
+        .block {
+            text-align: center;
+            border: 5px solid #74C0FC;
+            padding: 30px; /* Increased padding for better spacing */
+            border-radius: 20px; /* Adjusted border radius */
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+            width: 100%; /* Responsive width */
+            max-width: 600px; /* Maximum width for larger screens */
+        }
+        .block button {
+            border: 3px solid #74C0FC;
+            border-radius: 10px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .block button:hover {
+            background-color: #74C0FC;
+            color: white;
+        }
+    </style>
+</head>
 <body>
-    <div class="button">
-   <a href="dashboard.html"> <button><i class="fa-solid fa-house"></i>home</button></a>
-</div>
-<div class="main">
-    <div class="dash">
-        <h1>debit card payment</h1>
-   
-    <div class="block">
-  
-        <form> 
-            <div class="row mb-3 text-start">
-            <div class="col-md-6"> 
-            <label for="inputName" class="form-label">CARD NUMBER</label> 
-            <input type="text" class="form-control" id="inputName"> 
-            </div> 
-            <div class="col-md-6"> 
-            <label for="inputEmail" class="form-label">CARD CVV</label> 
-            <input type="card cvv" class="form-control" id="card cvv"> </div> 
-            </div> 
-            <div class="row mb-3"> 
-            <div class="col-md-6"> 
-            <label for="inputDate" class="form-label">CARD EXPIRY</label> 
-            <input type="card expiry" class="form-control" id="card expiry"> 
-            </div> 
-            <div class="col-md-6"> 
-            <label for="inputTime" class="form-label">ENTER AMOUNT</label> 
-            <input type="enteramount" class="form-control" id="amt">
-            </div> 
-            </div>  
-            <button type="button" onclick="debi()">DEBIT</button>
-            <h2 id="hello"></h2>
-
-           </form>
-          </div>  
-        </section>  
-    </div>          
-    </div>  
-</div>
-</div>
-</div>
-<script>
-        var pin = prompt("enter your4-digit pin.");
-        if(pin.length===4){
-            alert("success");
-
-        }
-        else{
-            alert("invalid pin.please enter 4 digits.");
+    <div class="text-center mb-4">
+        <a href="dashboard.html" class="btn btn-primary"><i class="fa-solid fa-house"></i> Home</a>
+    </div>
+    <div class="main">
+        <div class="block">
+            <h1>Debit Card Payment</h1>
+            <form onsubmit="return false;"> 
+                <div class="row mb-3">
+                    <div class="col-md-6"> 
+                        <label for="inputCardNumber" class="form-label">Card Number</label> 
+                        <input type="text" class="form-control" id="inputCardNumber" required> 
+                    </div> 
+                    <div class="col-md-6"> 
+                        <label for="inputCVV" class="form-label">Card CVV</label> 
+                        <input type="text" class="form-control" id="inputCVV" required> 
+                    </div> 
+                </div> 
+                <div class="row mb-3"> 
+                    <div class="col-md-6"> 
+                        <label for="inputExpiry" class="form-label">Card Expiry (MM/YY)</label> 
+                        <input type="text" class="form-control" id="inputExpiry" placeholder="MM/YY" required> 
+                    </div> 
+                    <div class="col-md-6"> 
+                        <label for="inputAmount" class="form-label">Enter Amount</label> 
+                        <input type="number" class="form-control" id="inputAmount" required>
+                    </div> 
+                </div>  
+                <button type="button" class="btn btn-primary" onclick="debi()">Debit</button>
+                <h2 id="hello" class="mt-3"></h2>
+            </form>
+        </div>  
+    </div>
+    <script>
+        var pin = prompt("Enter your 4-digit PIN:");
+        if (pin.length === 4) {
+            alert("Success");
+        } else {
+            alert("Invalid PIN. Please enter 4 digits.");
         }
 
-
-
-    let fixamt =100000;
-    function debi(){
-        let user = parseInt(document.getElementById("amt").value);
-        let totalamt= fixamt - user ;
-
-        document.getElementById("hello").innerHTML = "your total balance =" +totalamt;
-
-    }
-</script>
+        const fixamt = 100000;
+        function debi() {
+            let user = parseInt(document.getElementById("inputAmount").value);
+            if (isNaN(user) || user < 0) {
+                alert("Please enter a valid amount.");
+                return;
+            }
+            let totalamt = fixamt - user;
+            if (totalamt < 0) {
+                alert("Insufficient balance.");
+                return;
+            }
+            document.getElementById("hello").innerHTML = "Your total balance = " + totalamt;
+        }
+    </script>
 
 
   
